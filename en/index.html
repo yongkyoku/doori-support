@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOORI Support — User Guide</title>
+<meta name="description" content="Official support page for the DOORI autodoor controller app — user guide, troubleshooting, contact">
+<link rel="icon" href="../img/icon-192.png">
+<link rel="apple-touch-icon" href="../img/icon-192.png">
+<style>
+  :root{
+    --bg:#faf9f7; --card:#ffffff; --text:#1c2430; --muted:#5c6672; --line:#e3e0da;
+    --accent:#2563eb; --accent-soft:#eef3fe; --warn-bg:#fdf6e8; --warn-line:#e8d5a8;
+    --code-bg:#f0efec;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0c0f12; --card:#14181d; --text:#e8ebee; --muted:#98a2ad; --line:#262c33;
+      --accent:#6ea8fe; --accent-soft:#182236; --warn-bg:#251f10; --warn-line:#4a3d1c;
+      --code-bg:#1c2127;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    line-height:1.65;-webkit-text-size-adjust:100%}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 18px 60px}
+  header.site{display:flex;align-items:center;gap:14px;padding:18px 0 6px}
+  header.site img{width:56px;height:56px;border-radius:13px}
+  header.site h1{font-size:24px;margin:0;line-height:1.25}
+  header.site .sub{color:var(--muted);font-size:14px;margin-top:2px}
+  .lang{font-size:13px;margin-top:4px}
+  .lang a{color:var(--accent);text-decoration:none}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;margin:18px 0 24px;font-size:15px}
+  .contact b{display:block;margin-bottom:6px}
+  .contact a{color:var(--accent);text-decoration:none;word-break:break-all}
+  h2{font-size:20px;margin:44px 0 12px;padding-top:14px;border-top:1px solid var(--line)}
+  h3{font-size:16.5px;margin:26px 0 8px}
+  p,li{font-size:15px}
+  code{background:var(--code-bg);border-radius:5px;padding:1px 6px;font-size:13.5px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+  th{background:var(--card);white-space:nowrap}
+  .tbl{overflow-x:auto}
+  .note{background:var(--accent-soft);border:1px solid var(--line);border-radius:10px;
+    padding:11px 14px;font-size:14px;margin:12px 0}
+  .warn{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:10px;
+    padding:11px 14px;font-size:14px;margin:12px 0}
+  .figs{display:flex;flex-wrap:wrap;gap:16px;margin:16px 0}
+  figure{margin:0;flex:0 1 240px}
+  figure img{width:100%;max-width:260px;border:1px solid var(--line);border-radius:14px;display:block}
+  figcaption{font-size:12.5px;color:var(--muted);margin-top:6px;text-align:center}
+  footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);
+    color:var(--muted);font-size:13px}
+  footer a{color:var(--accent);text-decoration:none}
+  .qa dt{font-weight:600;margin-top:14px}
+  .qa dd{margin:4px 0 0 0;color:var(--muted)}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="site">
+  <img src="../img/icon-192.png" alt="DOORI app icon">
+  <div>
+    <h1>DOORI — Support &amp; User Guide</h1>
+    <div class="sub">Mobile app that controls and monitors an automatic door (MCU) over local Wi-Fi (Android · iPhone)</div>
+    <div class="lang"><a href="../">한국어 페이지 보기 (Korean)</a></div>
+  </div>
+</header>
+
+<div class="contact">
+  <b>📮 Contact</b>
+  If you need help or run into a problem, email us:
+  <a href="mailto:apracsix@gmail.com">apracsix@gmail.com</a><br>
+  Privacy policy: <a href="https://yongkyoku.github.io/doori-privacy/">yongkyoku.github.io/doori-privacy</a>
+</div>
+
+<h2 id="overview">Overview</h2>
+<p>DOORI connects your phone directly to an automatic-door controller (MCU) so you can open, close,
+and monitor the door.</p>
+<ul>
+  <li><b>Connection</b> — direct TCP connection to the controller's IP address (default port 50001)
+    on the same Wi-Fi network.</li>
+  <li><b>Local only</b> — the app works only while your phone is on the door's Wi-Fi (AP). Cellular
+    data and remote access are not supported.</li>
+  <li><b>Languages</b> — Korean · English · Chinese · Japanese. Themes: dark / light / white.</li>
+</ul>
+<div class="warn"><b>Important</b> — door control, door settings, and password changes all require an
+active connection. The password and door parameters are stored on the controller (MCU), not in the app.</div>
+
+<h2 id="start">Getting started</h2>
+<div class="figs">
+  <figure><img src="../img/m01-home-offline.png" alt="Home screen (offline) — Connect button at bottom right">
+    <figcaption>① Home (offline) — tap <b>Connect</b> at the bottom right</figcaption></figure>
+  <figure><img src="../img/m02-pin.png" alt="Password screen">
+    <figcaption>② Enter the controller password (default 1234)</figcaption></figure>
+</div>
+<ol>
+  <li>Join the door's Wi-Fi network with your phone (its name looks like <code>WizFi360_…</code> —
+    check your phone's Wi-Fi list).</li>
+  <li>Launch DOORI. The app opens on the home screen in offline mode (it does not auto-connect).</li>
+  <li>Tap the <b>Connect</b> button at the bottom right of the home screen.</li>
+  <li>When the password screen appears, enter the controller password (factory default
+    <code>1234</code>). After that, all controls are enabled.</li>
+</ol>
+<div class="warn"><b>iPhone users — Local Network permission</b>: on iOS 14+, the first connection
+shows a popup asking to allow DOORI to find and connect to devices on your local network. You must
+tap <b>Allow</b>. If you declined it by mistake, enable it in
+<b>Settings ▸ DOORI ▸ Local Network</b>, then connect again.</div>
+<div class="note">You can also let the app join the door's Wi-Fi for you: turn on
+<b>Auto Wi-Fi join</b> in Settings ▸ Network and enter the door's exact Wi-Fi name
+(Android 10+ · iPhone). While connected to the door's Wi-Fi — which has no internet — your other
+apps fall back to cellular data; your phone returns to its previous Wi-Fi when you disconnect or
+close the app.</div>
+
+<h2 id="home">Home screen at a glance</h2>
+<div class="figs">
+  <figure><img src="../img/m03-home.png" alt="Home screen (connected)">
+    <figcaption>Status panel · sensors · main controls · aperture presets · system</figcaption></figure>
+  <figure><img src="../img/m04-open.png" alt="Door opening — sensors lit">
+    <figcaption>Sensor chips light up while the door operates</figcaption></figure>
+</div>
+<ul>
+  <li><b>Status panel</b> — STATUS (door state) · RUNTIME (time of the last action) · LINK
+    (connection). The thin divider bars flash briefly each time a command is actually sent — that
+    flash is your confirmation cue.</li>
+  <li><b>SENSOR / SAFETY</b> — the passage sensor (triggers opening) and the safety sensor
+    (prevents closing on someone) blink red while detecting.</li>
+  <li><b>Open / Close / Stop / Hold</b> — main controls; enabled while connected and unlocked.</li>
+  <li><b>Aperture presets (100 / 50 / 30%)</b> — choose how far the door opens; the door moves on
+    the next <b>Open</b> command.</li>
+  <li><b>Lock / Reset</b> — hold for 1 second (shown as <code>Lock(1S)</code>) to prevent
+    accidental taps. <b>Connect</b> toggles the connection.</li>
+</ul>
+
+<h2 id="troubleshoot">Troubleshooting</h2>
+<div class="tbl"><table>
+  <tr><th>Symptom</th><th>What to check</th></tr>
+  <tr><td>Cannot connect</td><td>Make sure your phone is on the <b>same Wi-Fi</b> as the controller.
+    Check the IP/port in Settings ▸ Network (advanced — long-press the Network row for 5 s;
+    default port 50001).</td></tr>
+  <tr><td>Cannot connect on iPhone only</td><td>The iOS <b>Local Network</b> permission is off.
+    Enable it in Settings ▸ DOORI ▸ Local Network.</td></tr>
+  <tr><td>Frequent disconnects</td><td>Check the Wi-Fi signal. If the controller responds slowly,
+    raise the <b>MCU response timeout</b> (advanced network settings, default 1000 ms →
+    3000–5000 ms).</td></tr>
+  <tr><td>Control buttons are gray</td><td>The app is not connected, or the door is <b>locked</b>.</td></tr>
+  <tr><td>No internet while using DOORI</td><td>Normal — the door's Wi-Fi has no internet. Your phone
+    usually falls back to cellular data, and returns to your previous Wi-Fi when you disconnect.</td></tr>
+  <tr><td>A "DEMO" badge is shown and the real door does not move</td><td><b>Demo Mode</b> is on
+    (a virtual controller for demonstrations). Turn it off by long-pressing
+    <b>Settings ▸ Info</b> for 5+ seconds.</td></tr>
+  <tr><td>Forgot the password</td><td>The password is stored on the controller (MCU). Contact your
+    installer, or reset the controller.</td></tr>
+</table></div>
+
+<h2 id="faq">FAQ</h2>
+<dl class="qa">
+  <dt>Q. Can several phones control the door at the same time?</dt>
+  <dd>Yes — each phone connects and authenticates on its own. If two phones send commands at the
+  same moment the command already in progress takes priority, so we recommend operating the door
+  from one phone at a time.</dd>
+  <dt>Q. Can I open my door from outside (over the internet)?</dt>
+  <dd>No. DOORI works only on the door's local Wi-Fi. Remote access is intentionally not supported
+  for security reasons.</dd>
+  <dt>Q. Does the app collect any personal data?</dt>
+  <dd>No. There is no account, login, or sign-up, and the app talks to no external servers. See the
+  <a href="https://yongkyoku.github.io/doori-privacy/">privacy policy</a>.</dd>
+</dl>
+
+<footer>
+  <p>DOORI autodoor controller app · based on app version 1.1.0 (2026-07)<br>
+  Contact: <a href="mailto:apracsix@gmail.com">apracsix@gmail.com</a> ·
+  <a href="https://yongkyoku.github.io/doori-privacy/">Privacy policy</a> ·
+  <a href="../">한국어</a></p>
+</footer>
+
+</div>
+</body>
+</html>
