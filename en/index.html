@@ -82,8 +82,7 @@
 <p>DOORI connects your phone directly to an automatic-door controller (MCU) so you can open, close,
 and monitor the door.</p>
 <ul>
-  <li><b>Connection</b> — direct TCP connection to the controller's IP address (default port 50001)
-    on the same Wi-Fi network.</li>
+  <li><b>Connection</b> — connects directly to the door controller on the same Wi-Fi network.</li>
   <li><b>Local only</b> — the app works only while your phone is on the door's Wi-Fi (AP). Cellular
     data and remote access are not supported.</li>
   <li><b>Languages</b> — Korean · English · Chinese · Japanese. Themes: dark / light / white.</li>
@@ -139,20 +138,15 @@ close the app.</div>
 <h2 id="troubleshoot">Troubleshooting</h2>
 <div class="tbl"><table>
   <tr><th>Symptom</th><th>What to check</th></tr>
-  <tr><td>Cannot connect</td><td>Make sure your phone is on the <b>same Wi-Fi</b> as the controller.
-    Check the IP/port in Settings ▸ Network (advanced — long-press the Network row for 5 s;
-    default port 50001).</td></tr>
+  <tr><td>Cannot connect</td><td>Make sure your phone is on the <b>same Wi-Fi</b> as the controller
+    and try again. If it still fails, contact your installer or email us.</td></tr>
   <tr><td>Cannot connect on iPhone only</td><td>The iOS <b>Local Network</b> permission is off.
     Enable it in Settings ▸ DOORI ▸ Local Network.</td></tr>
-  <tr><td>Frequent disconnects</td><td>Check the Wi-Fi signal. If the controller responds slowly,
-    raise the <b>MCU response timeout</b> (advanced network settings, default 1000 ms →
-    3000–5000 ms).</td></tr>
+  <tr><td>Frequent disconnects</td><td>Check the Wi-Fi signal strength and your distance from the
+    controller. If it persists on a good signal, contact us.</td></tr>
   <tr><td>Control buttons are gray</td><td>The app is not connected, or the door is <b>locked</b>.</td></tr>
   <tr><td>No internet while using DOORI</td><td>Normal — the door's Wi-Fi has no internet. Your phone
     usually falls back to cellular data, and returns to your previous Wi-Fi when you disconnect.</td></tr>
-  <tr><td>A "DEMO" badge is shown and the real door does not move</td><td><b>Demo Mode</b> is on
-    (a virtual controller for demonstrations). Turn it off by long-pressing
-    <b>Settings ▸ Info</b> for 5+ seconds.</td></tr>
   <tr><td>Forgot the password</td><td>The password is stored on the controller (MCU). Contact your
     installer, or reset the controller.</td></tr>
 </table></div>
