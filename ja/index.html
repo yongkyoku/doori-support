@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOORI サポート — ユーザーマニュアル</title>
+<meta name="description" content="DOORI 自動ドアコントローラーアプリ公式サポートページ — ユーザーマニュアル、トラブルシューティング、お問い合わせ">
+<link rel="icon" href="img/icon-192.png">
+<link rel="apple-touch-icon" href="img/icon-192.png">
+<style>
+  :root{
+    --bg:#faf9f7; --card:#ffffff; --text:#1c2430; --muted:#5c6672; --line:#e3e0da;
+    --accent:#2563eb; --accent-soft:#eef3fe; --warn-bg:#fdf6e8; --warn-line:#e8d5a8;
+    --code-bg:#f0efec;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0c0f12; --card:#14181d; --text:#e8ebee; --muted:#98a2ad; --line:#262c33;
+      --accent:#6ea8fe; --accent-soft:#182236; --warn-bg:#251f10; --warn-line:#4a3d1c;
+      --code-bg:#1c2127;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo","Segoe UI",Roboto,sans-serif;
+    line-height:1.8;-webkit-text-size-adjust:100%}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 18px 60px}
+  header.site{display:flex;align-items:center;gap:14px;padding:18px 0 6px}
+  header.site img{width:56px;height:56px;border-radius:13px}
+  header.site h1{font-size:24px;margin:0;line-height:1.25}
+  header.site .sub{color:var(--muted);font-size:14px;margin-top:2px}
+  .lang{font-size:13px;margin-top:4px;color:var(--muted)}
+  .lang a{color:var(--accent);text-decoration:none}
+  .lang b{color:var(--text)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;margin:18px 0 6px;font-size:15px}
+  .contact b{display:block;margin-bottom:6px}
+  .contact a{color:var(--accent);text-decoration:none;word-break:break-all}
+  .contact .en{color:var(--muted);font-size:13px;margin-top:8px}
+  nav.toc{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 18px;margin:14px 0 30px;font-size:14.5px}
+  nav.toc b{display:block;margin-bottom:6px}
+  nav.toc ol{margin:0;padding-left:22px;columns:2;column-gap:28px}
+  @media(max-width:560px){nav.toc ol{columns:1}}
+  nav.toc a{color:var(--accent);text-decoration:none}
+  nav.toc a:hover{text-decoration:underline}
+  h2{font-size:20px;margin:44px 0 12px;padding-top:14px;border-top:1px solid var(--line)}
+  h3{font-size:16.5px;margin:26px 0 8px}
+  h4{font-size:15px;margin:20px 0 6px}
+  p,li{font-size:15px}
+  code{background:var(--code-bg);border-radius:5px;padding:1px 6px;font-size:13.5px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+  th{background:var(--card);white-space:nowrap}
+  .tbl{overflow-x:auto}
+  .note{background:var(--accent-soft);border:1px solid var(--line);border-radius:10px;
+    padding:11px 14px;font-size:14px;margin:12px 0}
+  .warn{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:10px;
+    padding:11px 14px;font-size:14px;margin:12px 0}
+  .figs{display:flex;flex-wrap:wrap;gap:16px;margin:16px 0}
+  figure{margin:0;flex:0 1 240px}
+  figure img{width:100%;max-width:260px;border:1px solid var(--line);border-radius:14px;display:block}
+  figcaption{font-size:12.5px;color:var(--muted);margin-top:6px;text-align:center}
+  footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);
+    color:var(--muted);font-size:13px}
+  footer a{color:var(--accent);text-decoration:none}
+  .qa dt{font-weight:600;margin-top:14px}
+  .qa dd{margin:4px 0 0 0;color:var(--muted)}
+  .top{font-size:12.5px}
+  .top a{color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap" id="top">
+
+<header class="site">
+  <img src="img/icon-192.png" alt="DOORI アプリアイコン">
+  <div>
+    <h1>DOORI — サポート · ユーザーマニュアル</h1>
+    <div class="sub">自動ドア（MCU）をローカル WiFi で制御・監視するモバイルアプリ（Android · iPhone）</div>
+    <div class="lang"><a href="../">한국어</a> · <a href="../en/">English</a> · <a href="../zh/">中文</a> · <b>日本語</b></div>
+  </div>
+</header>
+
+<div class="contact">
+  <b>📮 お問い合わせ (Support)</b>
+  ご使用中に問題が発生した場合やサポートが必要な場合は、メールでお問い合わせください：
+  <a href="mailto:blueautodoor@gmail.com">blueautodoor@gmail.com</a><br>
+  プライバシーポリシー：<a href="https://blueautodoor.github.io/doori-privacy/">blueautodoor.github.io/doori-privacy</a>
+  <div class="en">English support is available — please contact us by email. DOORI collects no personal data
+  (see the privacy policy above).</div>
+</div>
+
+<nav class="toc">
+  <b>目次</b>
+  <ol>
+    <li><a href="#s1">概要</a></li>
+    <li><a href="#s2">はじめに</a></li>
+    <li><a href="#s3">ホーム画面</a></li>
+    <li><a href="#s4">コントローラーへの接続</a></li>
+    <li><a href="#s5">設定メニュー</a></li>
+    <li><a href="#s6">ネットワーク設定</a></li>
+    <li><a href="#s7">自動ドア設定</a></li>
+    <li><a href="#s8">パスコード設定</a></li>
+    <li><a href="#s9">言語 · 画面</a></li>
+    <li><a href="#s10">使用履歴</a></li>
+    <li><a href="#s11">トラブルシューティング</a></li>
+    <li><a href="#s12">よくある質問</a></li>
+  </ol>
+</nav>
+
+<h2 id="s1">1. 概要</h2>
+<p>DOORI アプリは、スマートフォンから自動ドアコントローラー（MCU）に直接接続し、ドアの開閉と状態確認を行うアプリです。</p>
+<ul>
+  <li><b>通信方式</b> — 同じ WiFi ネットワーク内で自動ドアコントローラーに直接接続します。</li>
+  <li><b>ローカル専用</b> — 自動ドアの WiFi（AP）に接続した状態でのみ動作します。モバイルデータ・外部ネットワーク経由の接続には対応していません。</li>
+  <li><b>多言語</b> — 한국어 · English · 中文 · 日本語。</li>
+  <li><b>画面</b> — テーマ（ダーク/ライト/ホワイト）· 文字サイズ（小/標準/中/大、設定画面のみ）· ボタンサイズ（固定/画面に合わせる）。</li>
+</ul>
+<div class="warn"><b>重要</b> — ドアの制御、センサー設定、パスコード変更は<b>すべてコントローラーに接続した状態</b>でのみ動作します。
+パスコードとセンサー値はアプリではなくコントローラー（MCU）に保存されます。</div>
+
+<h2 id="s2">2. はじめに</h2>
+
+<h3>動作環境（対応機種）</h3>
+<div class="tbl"><table>
+  <tr><th>区分</th><th>対応範囲</th></tr>
+  <tr><td><b>Android</b></td><td>Android 5.1 以上（2015 年以降のほとんどの機種）</td></tr>
+  <tr><td><b>iPhone</b></td><td>iOS 13 以上 — iPhone 6s · SE（第 1 世代）以降の最新機種まで</td></tr>
+  <tr><td><b>iPad</b></td><td>非対応（iPhone 専用アプリ）</td></tr>
+  <tr><td><b>共通</b></td><td>自動ドアコントローラーと<b>同じ WiFi</b> に接続できる端末</td></tr>
+</table></div>
+<div class="note"><b>自動ドア WiFi への接続は既定で手動です</b> — スマートフォンの WiFi 設定から自動ドア WiFi に直接接続してからご使用ください。
+<b>設定 ▸ ネットワークで「WiFi自動検索」をオンにし、正確な WiFi 名を入力</b>すると、アプリ内から直接接続するボタンが表示されます
+（Android 10 以上 · iPhone）。</div>
+<div class="warn"><b>iPhone をお使いの方へ — ローカルネットワーク権限</b>：iPhone（iOS 14 以上）では、
+アプリが同じ WiFi 上の機器にアクセスする際に<b>「"DOORI"がローカルネットワーク上のデバイスの検索および接続を求めています」</b>というダイアログが一度表示されます。
+<b>許可</b>を選択しないとコントローラーに接続できません。誤って拒否した場合は
+<b>設定アプリ ▸ DOORI ▸ ローカルネットワーク</b>をオンにしてください。（Android では追加の権限なしにそのまま接続できます。）</div>
+
+<h3>接続手順</h3>
+<div class="figs">
+  <figure><img src="img/m01-home-offline.png" alt="ホーム画面（オフライン）— 右下の接続ボタン">
+    <figcaption>① アプリ起動直後のホーム（オフライン）— 右下の<b>接続</b>ボタン</figcaption></figure>
+  <figure><img src="img/m02-pin.png" alt="パスコード入力画面">
+    <figcaption>② 接続するとパスコードを入力</figcaption></figure>
+</div>
+<ol>
+  <li>スマートフォンを自動ドアコントローラーと<b>同じ WiFi</b> に接続します。自動ドアは自身の WiFi を発信しているので、
+    スマートフォンの WiFi 設定からこの WiFi を選んで接続します。</li>
+  <li>DOORI アプリを起動します。アプリを新たに起動すると、スタート画面が約 1.4 秒表示された後
+    <b>ホーム画面（オフライン）</b>が開きます（自動接続はしません）。</li>
+  <li>ホーム画面右下のシステム領域にある<b>接続</b>ボタンを押します。接続されると
+    <b>パスコード入力（コントローラー認証）</b>画面が表示されます。<b>設置時にお伝えした 4 桁のパスコード</b>を入力してください。
+    認証後に制御が有効になります。</li>
+  <li>接続できない場合は <a href="#s11">11. トラブルシューティング</a>をご確認のうえ、解決しない場合はお問い合わせください。</li>
+</ol>
+<div class="note">パスコードは<b>接続してドアを制御するとき</b>に入力します。</div>
+
+<h2 id="s3">3. ホーム画面</h2>
+<div class="figs">
+  <figure><img src="img/m03-home.png" alt="ホーム画面（接続済み）">
+    <figcaption>ホーム画面 — ステータスパネル・センサー・基本制御・開度設定・システム</figcaption></figure>
+  <figure><img src="img/m04-open.png" alt="開放動作中 — センサー点灯">
+    <figcaption>ドアが開く間、SENSOR・SAFETY チップが点灯</figcaption></figure>
+</div>
+<p>ホーム画面はテーマによって見た目が変わりますが、構成と動作は同じです。上から順に以下の領域があります。</p>
+
+<h3>3.1 上部ヘッダー</h3>
+<p>左側はアプリのアイコンと名称、右側の<b>設定</b>ボタンから設定メニューに入ります。</p>
+
+<h3>3.2 ステータスパネル（STATUS）</h3>
+<div class="tbl"><table>
+  <tr><th>項目</th><th>意味</th></tr>
+  <tr><td><b>STATUS</b></td><td>現在の状態 — 開放中 / 閉鎖中 / 開 / 閉 / 停止 / エラー / 開放（全開保持）/ ロック。表示する状態がない場合は <code>-</code></td></tr>
+  <tr><td><b>RUNTIME</b></td><td>最後に動作が発生した時刻（月/日 · 時:分:秒）。動作記録がない場合は <code>-</code></td></tr>
+  <tr><td><b>LINK</b></td><td>コントローラーの接続状態 — 接続済み（緑）/ 接続中…（アンバー）/ オフライン（赤）</td></tr>
+</table></div>
+<p><b>STATUS の色分け</b> — 進行中（開放中/閉鎖中）と停止は黄色、エラーとロックは赤色、それ以外（開/閉/開放）は緑色です。</p>
+<div class="note"><b>動作確認の表示 — 区切り線の点滅</b><br>
+制御ボタンを押して動作が実際に送信された瞬間、ステータスパネル内の<b>縦の区切り線</b>（STATUS | RUNTIME | LINK の間の線）が
+一瞬点滅して消えます。特にロックやリセットのような長押しが必要なボタンは指で隠れて動作のタイミングが分かりにくいのですが、
+この点滅で「今コマンドが送られた」ことをすぐ確認できます。点滅はコマンドが<b>実際に送信された場合にのみ</b>表示されます。</div>
+
+<h3>3.3 センサー検知（SENSOR / SAFETY）</h3>
+<ul>
+  <li><b>SENSOR</b> — 人や物体を検知してドアの<b>開放を発生させる</b>センサー。</li>
+  <li><b>SAFETY</b> — 安全センサー。閉まるドアの<b>挟み込みを防ぎます</b>（検知中は閉まりません）。</li>
+</ul>
+<p>検知している間はチップが赤く点滅します。瞬間的な検知も見逃さないよう、点滅は最低約 1 秒間保持されます。</p>
+
+<h3>3.4 基本制御（4 つのボタン）</h3>
+<p>接続済みかつロックされていない場合のみ有効になります。</p>
+<div class="tbl"><table>
+  <tr><th>ボタン</th><th>動作</th></tr>
+  <tr><td><b>開く</b></td><td>設定された開度までドアを開きます。</td></tr>
+  <tr><td><b>閉じる</b></td><td>ドアを閉じます。</td></tr>
+  <tr><td><b>停止</b></td><td>動作中のドアをその場で停止します。</td></tr>
+  <tr><td><b>開放</b></td><td>全開にした後、その状態を保持します。</td></tr>
+</table></div>
+
+<h3>3.5 開度設定（100 / 50 / 30）</h3>
+<p>ドアをどこまで開くかの<b>開度</b>をあらかじめ選びます（プリセット 3 つ）。プリセットを押すと開度だけが送られ、
+<b>ドアはすぐには動きません</b> — その後<b>開く</b>ボタンを押すと、この開度で動作します。</p>
+
+<h3>3.6 システム（3 つのボタン）</h3>
+<div class="tbl"><table>
+  <tr><th>ボタン</th><th>動作</th></tr>
+  <tr><td><b>ロック / 解除</b></td><td>誤タッチ防止のため<b>長押し</b>（既定 1 秒）で動作します（ボタンには <code>ロック(1S)</code> のように表示）。
+    ドアをロックすると制御ボタンが無効になります。</td></tr>
+  <tr><td><b>リセット</b></td><td>長押し（既定 1 秒）でコントローラーにリセットコマンドを送ります。短く押しても動作しません。</td></tr>
+  <tr><td><b>接続</b></td><td>接続のオン・オフを切り替えます。緑色の<b>接続済み</b>が正常な状態です。</td></tr>
+</table></div>
+<div class="note">ロックとリセットは<b>コントローラーに接続されているときのみ</b>有効です。未接続の状態では
+グレー表示になり押しても動作しません。<b>接続</b>ボタンだけは常に有効です。</div>
+
+<h2 id="s4">4. コントローラーへの接続</h2>
+<ul>
+  <li><b>接続</b> — アプリ起動時に自動接続はせず、ホームの<b>接続</b>ボタンを押して接続します。</li>
+  <li><b>認証</b> — セッション中の最初の接続時に一度パスコードを求められます。一度認証すれば、
+    同じセッション内では切断・再接続されても再度尋ねられません。</li>
+  <li><b>自動再接続</b> — 接続が切れると自動的に再接続し、先に入力したパスコードで自動的に再認証します。
+    パスコードはアプリ実行中のみメモリに保持され保存されないため、アプリを終了して起動し直すと再入力が必要です。</li>
+  <li><b>ローカル専用</b> — WiFi がオフになると接続を切り、WiFi が戻ると自動的に再接続します。</li>
+</ul>
+
+<h3>自動ドア WiFi に接続する — 既定はスマートフォンの WiFi 設定から手動で</h3>
+<p>出荷時の設定ではアプリが WiFi を自動的に掴むことはありません。<b>スマートフォンの設定 ▸ WiFi から自動ドア WiFi</b>
+（名称は <code>WizFi360_…</code> のように表示されます）に接続してから、アプリのホームで<b>接続</b>を押してください。
+自動ドア WiFi でない状態で接続を押すと案内画面が表示されます — スマートフォンの WiFi を切り替えて<b>再試行</b>を押してください。</p>
+
+<h3>アプリから自動で接続する（WiFi自動検索 — Android 10 以上 · iPhone）</h3>
+<p><b>設定 ▸ ネットワーク</b>で<b>「WiFi自動検索」をオンにし、自動ドアの正確な WiFi 名</b>（例：
+<code>WizFi360_123456</code> — スマートフォンの WiFi 一覧で確認）を入力しておくと、接続案内画面に
+<b>「(WiFi名) に接続」</b>ボタンが表示されます。スマートフォンの WiFi 設定に移動しなくても、アプリから直接接続できます。</p>
+<ol>
+  <li><b>「(WiFi名) に接続」</b>を押します。</li>
+  <li>スマートフォンが<b>「デバイスに接続しますか？」</b>と尋ねます → <b>接続</b>を押します。
+    （最初の一度だけ表示され、以降はスマートフォンが記憶してすぐ接続します。）</li>
+  <li>自動ドア WiFi に接続されると、アプリが自動的にコントローラーまで接続しパスコード画面に進みます。</li>
+</ol>
+<div class="warn"><b>接続中はスマートフォンの WiFi が自動ドア WiFi に切り替わります。</b>自動ドア WiFi にはインターネットがないため、
+その間は他アプリの通信がモバイルデータ（LTE·5G）に切り替わります。データ通信が使えない状態では、
+DOORI を使っている間インターネットに接続できません。これは正常な動作で、
+<b>アプリを終了するか接続を解除すると元の WiFi に自動的に戻ります。</b></div>
+
+<h2 id="s5">5. 設定メニュー</h2>
+<div class="figs">
+  <figure><img src="img/m05-settings.png" alt="設定メニュー">
+    <figcaption>設定メニュー — ホーム右上の設定ボタンから入ります</figcaption></figure>
+</div>
+<div class="tbl"><table>
+  <tr><th>項目</th><th>説明</th></tr>
+  <tr><td><b>自動ドア設定</b></td><td>15 個の動作パラメーターを調整 → <a href="#s7">7 章</a></td></tr>
+  <tr><td><b>ネットワーク</b></td><td>コントローラー WiFi（自動検索）→ <a href="#s6">6 章</a></td></tr>
+  <tr><td><b>使用履歴</b></td><td>開閉・イベントログ → <a href="#s10">10 章</a></td></tr>
+  <tr><td><b>言語設定</b></td><td>한국어/English/中文/日本語 → <a href="#s9">9 章</a></td></tr>
+  <tr><td><b>パスコード</b></td><td>4 桁のパスコード変更 → <a href="#s8">8 章</a></td></tr>
+  <tr><td><b>画面設定</b></td><td>テーマ · 文字サイズ · ボタンサイズ → <a href="#s9">9 章</a></td></tr>
+  <tr><td><b>情報</b></td><td>型番・ファームウェア・シリアルなどの機器情報</td></tr>
+</table></div>
+
+<h2 id="s6">6. ネットワーク設定</h2>
+<div class="figs">
+  <figure><img src="img/m06-network.png" alt="ネットワーク設定 — コントローラー WiFi">
+    <figcaption>ネットワーク設定 — WiFi自動検索 + コントローラー WiFi 名・パスワード</figcaption></figure>
+</div>
+
+<h3>コントローラー WiFi</h3>
+<ul>
+  <li><b>WiFi自動検索</b>（トグル、既定オフ）— オフの場合はスマートフォンの WiFi 設定から直接接続（既定）、
+    オンにすると下に入力した WiFi 名でアプリが自動接続を試みます。</li>
+  <li><b>コントローラー WiFi 名</b> — 自動ドア WiFi の<b>正確な名称</b>（例：<code>WizFi360_123456</code>）。
+    機器ごとに末尾が異なるため、スマートフォンの WiFi 一覧で確認してそのまま入力してください。</li>
+  <li><b>WiFi パスワード</b> — 自動ドア WiFi のパスワード（設置時にお伝えした値）。</li>
+</ul>
+<p>WiFi 情報は保存されるだけで、現在の接続には影響しません（次回の接続から適用）。周囲に自動ドアが複数あっても、
+正確な名称を指定するため入力したその 1 台にのみ接続します。</p>
+
+<h2 id="s7">7. 自動ドア設定</h2>
+<div class="figs">
+  <figure><img src="img/m08-door-settings.png" alt="自動ドア設定 — 15 個のパラメーター">
+    <figcaption>自動ドア設定 — 15 項目を +/− ボタンで調整</figcaption></figure>
+</div>
+<div class="warn"><b>コントローラーに接続された状態でのみ</b>使用できます（値の読み取り・保存ともにコントローラーが必要）。</div>
+<div class="note">この画面の値は<b>設置業者が現場で調整した値</b>です。むやみに変更するとドアが正しく開閉しなくなる場合がありますので、
+調整が必要な場合は<b>設置業者にお問い合わせください</b>。</div>
+<p>画面に入るとコントローラーの現在の設定 15 個を自動的に読み込みます。各項目は <code>+</code>/<code>−</code> ボタンで調整します。</p>
+<div class="tbl"><table>
+  <tr><th>#</th><th>項目</th><th>意味</th><th>範囲</th></tr>
+  <tr><td>0</td><td>OPEN SPEED</td><td>開放速度</td><td>0~9</td></tr>
+  <tr><td>1</td><td>CLOSE SPEED</td><td>閉鎖速度</td><td>0~9</td></tr>
+  <tr><td>2</td><td>OPEN WAIT</td><td>開放待機時間</td><td>0~9</td></tr>
+  <tr><td>3</td><td>RESERVED</td><td>予約（未使用）</td><td>—</td></tr>
+  <tr><td>4</td><td>OPEN BRAKE POS.</td><td>開放ブレーキ位置</td><td>0~9</td></tr>
+  <tr><td>5</td><td>CLOSE BRAKE POS.</td><td>閉鎖ブレーキ位置</td><td>0~9</td></tr>
+  <tr><td>6</td><td>MOTOR LOCK SET</td><td>モーターロック</td><td>0~9</td></tr>
+  <tr><td>7</td><td>24V OUT</td><td>24V 出力</td><td>0~1</td></tr>
+  <tr><td>8</td><td>RETURN STRENGTH1</td><td>復帰力 1</td><td>0~9</td></tr>
+  <tr><td>9</td><td>OPEN STOP POS.</td><td>開放終了位置</td><td>0~9</td></tr>
+  <tr><td>A</td><td>CLOSE STOP POS.</td><td>閉鎖終了位置</td><td>0~9</td></tr>
+  <tr><td>b</td><td>CLOSE LOW SPEED</td><td>低速閉鎖</td><td>0~9</td></tr>
+  <tr><td>c</td><td>RETURN STRENGTH2</td><td>復帰力 2</td><td>0~9</td></tr>
+  <tr><td>d</td><td>SETTING STRENGTH</td><td>設定力</td><td>0~9</td></tr>
+  <tr><td>E</td><td>ONE_TOUCH SET</td><td>ワンタッチ</td><td>0~1</td></tr>
+</table></div>
+<p>下部のボタン — <b>読取</b>：現在の値を再取得します · <b>保存</b>：15 個の値をコントローラーに書き込みます
+（コントローラーの成功応答を確認して完了）· <b>既定値</b>：画面の値を工場出荷時の既定値に戻します（保存するまでコントローラーには反映されません）。</p>
+<p>まだ値を読み取れていない項目は <code>—</code> と表示され、調整・保存ができません — 先に<b>読取</b>を実行してください。
+保存後に応答がない場合は「保存応答なし」のダイアログが表示され、<b>再要求</b>できます。</p>
+
+<h2 id="s8">8. パスコード設定</h2>
+<div class="figs">
+  <figure><img src="img/m09-password.png" alt="パスコード設定">
+    <figcaption>パスコード変更 — 現在 → 新しいパスコード → 確認の 3 ステップ</figcaption></figure>
+</div>
+<div class="warn">パスコードは<b>コントローラー（MCU）に保存</b>されます。そのため<b>接続された状態でのみ</b>変更できます。</div>
+<p>変更手順（4 桁の数字）：① <b>現在のパスコード</b>を入力（コントローラーが検証）→ ② <b>新しいパスコード</b>を入力 →
+③ <b>パスコード確認</b>で再入力。</p>
+<p>変更が確定すると「パスコードを変更しました」という通知とともにホームに戻り、コントローラーが一時的に再起動するため
+<b>円形のカウントダウンタイマー</b>が表示されます。ほとんどの場合、数秒以内に自動的に再接続されます
+（新しいパスコードで自動認証されるため、再入力は不要です）。</p>
+
+<h2 id="s9">9. 言語 · 画面</h2>
+<div class="figs">
+  <figure><img src="img/m10-display.png" alt="画面設定">
+    <figcaption>画面設定 — テーマ・文字サイズ・ボタンサイズ</figcaption></figure>
+  <figure><img src="img/m12-home-light.png" alt="ライトテーマのホーム">
+    <figcaption>ライトテーマ</figcaption></figure>
+  <figure><img src="img/m13-home-white.png" alt="ホワイトテーマのホーム">
+    <figcaption>ホワイトテーマ</figcaption></figure>
+</div>
+<h3>言語設定</h3>
+<p>設定 → <b>言語設定</b> → 한국어 / English / 中文 / 日本語 から選択します。選択すると即座に画面全体に反映されます。
+インストール直後はスマートフォン（システム）の言語に従い、対応していない言語の場合は英語で表示されます。
+一度選択すると、その選択が保持されます。</p>
+<h3>画面設定（テーマ · 文字サイズ · ボタンサイズ）</h3>
+<ul>
+  <li><b>テーマ</b> — ダーク / ライト / ホワイトの 3 種類。選択すると即座に反映されます。</li>
+  <li><b>文字サイズ</b> — 小/標準/中/大の 4 段階。<b>設定画面の文字だけ</b>大きくなり、ホーム画面には影響しません。
+    段階を変えてもレイアウトが崩れることはありません。</li>
+  <li><b>ボタンサイズ</b> — <b>画面に合わせる</b>（既定）：画面の高さに合わせてホームのボタンを大きくし余白を埋めます ·
+    <b>固定</b>：すべての機種で同じ大きさを保ちます。</li>
+</ul>
+
+<h2 id="s10">10. 使用履歴</h2>
+<div class="figs">
+  <figure><img src="img/m11-history.png" alt="使用履歴">
+    <figcaption>使用履歴 — 統計 + 期間フィルター（今日/昨日/7 日/30 日）</figcaption></figure>
+</div>
+<p>設定 → <b>使用履歴</b>からドアの動作履歴を確認します。表示対象：開放/閉鎖完了 · 停止 · エラーなどのドア動作と、
+ロック / 解除 / リセットの記録。</p>
+<div class="note">使用履歴には<b>コントローラーで実際に起きた状態変化のみ</b>が残ります。定期的な状態確認（ヘルスチェック）、
+センサー検知の表示、開度の変更など、画面に見えるものすべてが記録されるわけではありません — 同じ状態が繰り返されて
+記録が埋め尽くされるのを防ぐためです。</div>
+<ul>
+  <li>期間フィルター：今日 / 昨日 / 7 日 / 30 日 · 上部に開放・閉鎖回数の統計。</li>
+  <li>保存：直近 <b>30 日</b> + 最大 <b>3,000 件</b>（超過分は自動削除）。<b>記録を消去</b>で全件削除できます。</li>
+</ul>
+
+<h2 id="s11">11. トラブルシューティング</h2>
+<div class="tbl"><table>
+  <tr><th>症状</th><th>確認事項</th></tr>
+  <tr><td>接続できない</td><td>スマートフォンとコントローラーが<b>同じ WiFi</b> かご確認のうえ再試行してください。
+    それでも改善しない場合は設置業者または当社へご連絡ください。</td></tr>
+  <tr><td>iPhone でだけ接続できない</td><td>iOS の<b>ローカルネットワーク権限</b>がオフになっている可能性があります。
+    設定アプリ ▸ DOORI ▸ ローカルネットワークをオンにしてから再接続してください。</td></tr>
+  <tr><td>頻繁に切断される</td><td>WiFi の電波強度とコントローラーとの距離をご確認ください。
+    電波が良好でも続く場合はお問い合わせください。</td></tr>
+  <tr><td>制御ボタンが無効（グレー）</td><td>未接続、または<b>ロック</b>状態です。</td></tr>
+  <tr><td>自動ドア設定に入れない</td><td>コントローラーに接続されている必要があります。</td></tr>
+  <tr><td>設定値が <code>—</code> のままになる</td><td>まだ読み取っていません。<b>読取</b>を押してください。</td></tr>
+  <tr><td>パスコードを変更できない</td><td>パスコードはコントローラーに保存されます — <b>接続された状態</b>でのみ変更できます。</td></tr>
+  <tr><td>モバイルデータで接続したい</td><td>対応していません。自動ドアの WiFi（AP）に接続してからご使用ください。</td></tr>
+  <tr><td>自動ドア WiFi 接続ボタンが表示されない</td><td>アプリ内での自動接続は<b>「WiFi自動検索」をオンにする</b>と表示されます
+    （設定 ▸ ネットワーク、Android 10 以上 · iPhone）。それ以外はスマートフォンの WiFi 設定から直接接続してください。</td></tr>
+  <tr><td>DOORI 使用中にインターネットが使えない</td><td>正常です — 接続中はスマートフォンの WiFi が
+    インターネットのない自動ドア WiFi に切り替わります。アプリを終了するか接続を解除すると元の WiFi に戻ります。</td></tr>
+  <tr><td>自動接続で「WiFi が見つからない」と表示される</td><td>設定 ▸ ネットワークの<b>コントローラー WiFi 名</b>が
+    実際の名称と完全に一致しているか（スマートフォンの WiFi 一覧で確認）、WiFi パスワードが正しいかをご確認ください。</td></tr>
+  <tr><td><b>席を外して戻ったら接続されていない</b></td><td>正常です。下の
+    <b>「接続が自動的に戻らないとき」</b>を参考に、ホームの<b>接続</b>ボタンを押してください。</td></tr>
+  <tr><td><b>他の WiFi を使った後に戻ると接続できない</b></td><td>スマートフォンを<b>自動ドア WiFi に戻してから</b>
+    ホームの<b>接続</b>を押してください。</td></tr>
+</table></div>
+
+<h3>接続が自動的に戻らないとき — 手動での再接続</h3>
+<p><b>DOORI は自動ドア WiFi の中でのみ動作します。</b>そのためスマートフォンがその WiFi から離れると、アプリは
+<b>バッテリーを節約するために自動再接続を一時的に停止します。</b>故障ではなく、決められた動作です。
+このとき <code>LINK</code> 欄は<b>オフライン</b>と表示され、制御ボタンはグレーになりロックされます。</p>
+<div class="tbl"><table>
+  <tr><th>状況</th><th>アプリの動作</th></tr>
+  <tr><td>ドアから離れて自動ドア WiFi の圏外になった</td><td>数回試したあと<b>静かに停止します</b></td></tr>
+  <tr><td>モバイルデータ（LTE·5G）に切り替わった</td><td>同様に停止します（データ通信では自動ドアに到達できません）</td></tr>
+  <tr><td>他の WiFi（自宅・オフィスなど）に移った</td><td>もう少し試したあと停止します</td></tr>
+  <tr><td>自動ドア WiFi に戻ってきた</td><td><b>自動的に</b>再接続します</td></tr>
+  <tr><td>電波が弱く一時的に切断された</td><td><b>自動的に</b>数回再接続を試みます</td></tr>
+</table></div>
+<p><b>解決方法 — 2 ステップで済みます。</b></p>
+<ol>
+  <li><b>スマートフォンが自動ドア WiFi に接続されているか確認</b>してください。</li>
+  <li><b>ホーム画面右下の <code>接続</code> ボタンを押してください。</b>このボタンを押すとアプリが
+    <b>最初からやり直して</b>接続を試みます — 自動再接続が停止した後でも必ず動作する、最も確実な方法です。</li>
+</ol>
+<div class="note">しばらく席を外して戻ったときに接続が見当たらない場合は、<b>お待ちにならず <code>接続</code> ボタンを一度押してください。</b>
+アプリが自力で再接続するのを待つよりずっと早く復帰します。</div>
+
+<h2 id="s12">12. よくある質問</h2>
+<dl class="qa">
+  <dt>Q. 複数のスマートフォンから同時に制御できますか？</dt>
+  <dd>可能です。複数の端末がそれぞれ接続・認証すれば一緒に使用できます。ただし複数の端末が同時にコマンドを送ると、
+  実行中のコマンドが優先されて一部のコマンドが無視されるなど、意図と異なる動作に見える場合があります。
+  ドアを操作する際は一度に 1 台からの操作をおすすめします。</dd>
+  <dt>Q. パスコードを忘れてしまいました。</dt>
+  <dd>パスコードはコントローラー（MCU）に保存されています。コントローラーの初期化、または設置業者へのお問い合わせが必要です。</dd>
+  <dt>Q. 開度 100/50/30 以外の値は設定できませんか？</dt>
+  <dd>ホーム画面では 100/50/30 のプリセットのみをご用意しています（スライダーはありません）。</dd>
+  <dt>Q. 少し席を外して戻ったら接続が切れていました。故障ですか？</dt>
+  <dd>いいえ。スマートフォンが自動ドア WiFi から離れると、アプリはバッテリーを節約するため自動再接続を停止します。
+  自動ドア WiFi に再接続してから、ホームの<b>接続</b>ボタンを押してください。</dd>
+  <dt>Q. アプリを起動したままドアの前に行けば自動で接続されますか？</dt>
+  <dd>自動ドア WiFi につながったままであれば、たいていは自動的に再接続されます。ただし途中で他の WiFi や
+  モバイルデータに切り替わっていた場合は、<b>ご自身で <code>接続</code> ボタンを押す必要があります</b>。</dd>
+  <dt>Q. インターネット（外部）から自宅の自動ドアを開けられますか？</dt>
+  <dd>対応していません。DOORI は自動ドアと同じ WiFi（AP）内でのみ接続します。遠隔制御はセキュリティ上の課題があるため、
+  別の製品構成で扱います。</dd>
+  <dt>Q. アプリが収集する個人情報はありますか？</dt>
+  <dd>ありません。アカウント・ログイン・会員登録はなく、外部サーバーとも通信しません。
+  詳しくは<a href="https://blueautodoor.github.io/doori-privacy/">プライバシーポリシー</a>をご覧ください。</dd>
+</dl>
+
+<footer>
+  <p>DOORI 自動ドアコントローラーアプリ · アプリバージョン 1.1.0 時点（2026-07）<br>
+  お問い合わせ：<a href="mailto:blueautodoor@gmail.com">blueautodoor@gmail.com</a> ·
+  <a href="https://blueautodoor.github.io/doori-privacy/">プライバシーポリシー</a></p>
+  <p class="top"><a href="#top">↑ ページ上部へ</a></p>
+</footer>
+
+</div>
+</body>
+</html>

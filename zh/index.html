@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>DOORI 支持 — 用户手册</title>
+<meta name="description" content="DOORI 自动门控制器应用官方支持页面 — 用户手册、故障排除、联系方式">
+<link rel="icon" href="img/icon-192.png">
+<link rel="apple-touch-icon" href="img/icon-192.png">
+<style>
+  :root{
+    --bg:#faf9f7; --card:#ffffff; --text:#1c2430; --muted:#5c6672; --line:#e3e0da;
+    --accent:#2563eb; --accent-soft:#eef3fe; --warn-bg:#fdf6e8; --warn-line:#e8d5a8;
+    --code-bg:#f0efec;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0c0f12; --card:#14181d; --text:#e8ebee; --muted:#98a2ad; --line:#262c33;
+      --accent:#6ea8fe; --accent-soft:#182236; --warn-bg:#251f10; --warn-line:#4a3d1c;
+      --code-bg:#1c2127;
+    }
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Segoe UI",Roboto,sans-serif;
+    line-height:1.75;-webkit-text-size-adjust:100%}
+  .wrap{max-width:860px;margin:0 auto;padding:24px 18px 60px}
+  header.site{display:flex;align-items:center;gap:14px;padding:18px 0 6px}
+  header.site img{width:56px;height:56px;border-radius:13px}
+  header.site h1{font-size:24px;margin:0;line-height:1.25}
+  header.site .sub{color:var(--muted);font-size:14px;margin-top:2px}
+  .lang{font-size:13px;margin-top:4px;color:var(--muted)}
+  .lang a{color:var(--accent);text-decoration:none}
+  .lang b{color:var(--text)}
+  .contact{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:16px 18px;margin:18px 0 6px;font-size:15px}
+  .contact b{display:block;margin-bottom:6px}
+  .contact a{color:var(--accent);text-decoration:none;word-break:break-all}
+  .contact .en{color:var(--muted);font-size:13px;margin-top:8px}
+  nav.toc{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 18px;margin:14px 0 30px;font-size:14.5px}
+  nav.toc b{display:block;margin-bottom:6px}
+  nav.toc ol{margin:0;padding-left:22px;columns:2;column-gap:28px}
+  @media(max-width:560px){nav.toc ol{columns:1}}
+  nav.toc a{color:var(--accent);text-decoration:none}
+  nav.toc a:hover{text-decoration:underline}
+  h2{font-size:20px;margin:44px 0 12px;padding-top:14px;border-top:1px solid var(--line)}
+  h3{font-size:16.5px;margin:26px 0 8px}
+  h4{font-size:15px;margin:20px 0 6px}
+  p,li{font-size:15px}
+  code{background:var(--code-bg);border-radius:5px;padding:1px 6px;font-size:13.5px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+  table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+  th,td{border:1px solid var(--line);padding:7px 10px;text-align:left;vertical-align:top}
+  th{background:var(--card);white-space:nowrap}
+  .tbl{overflow-x:auto}
+  .note{background:var(--accent-soft);border:1px solid var(--line);border-radius:10px;
+    padding:11px 14px;font-size:14px;margin:12px 0}
+  .warn{background:var(--warn-bg);border:1px solid var(--warn-line);border-radius:10px;
+    padding:11px 14px;font-size:14px;margin:12px 0}
+  .figs{display:flex;flex-wrap:wrap;gap:16px;margin:16px 0}
+  figure{margin:0;flex:0 1 240px}
+  figure img{width:100%;max-width:260px;border:1px solid var(--line);border-radius:14px;display:block}
+  figcaption{font-size:12.5px;color:var(--muted);margin-top:6px;text-align:center}
+  footer{margin-top:56px;padding-top:16px;border-top:1px solid var(--line);
+    color:var(--muted);font-size:13px}
+  footer a{color:var(--accent);text-decoration:none}
+  .qa dt{font-weight:600;margin-top:14px}
+  .qa dd{margin:4px 0 0 0;color:var(--muted)}
+  .top{font-size:12.5px}
+  .top a{color:var(--muted);text-decoration:none}
+</style>
+</head>
+<body>
+<div class="wrap" id="top">
+
+<header class="site">
+  <img src="img/icon-192.png" alt="DOORI 应用图标">
+  <div>
+    <h1>DOORI — 支持 · 用户手册</h1>
+    <div class="sub">在本地 WiFi 上控制和监视自动门（MCU）的移动应用（Android · iPhone）</div>
+    <div class="lang"><a href="../">한국어</a> · <a href="../en/">English</a> · <b>中文</b> · <a href="../ja/">日本語</a></div>
+  </div>
+</header>
+
+<div class="contact">
+  <b>📮 联系我们 (Support)</b>
+  使用过程中遇到问题或需要帮助，请通过电子邮件联系我们：
+  <a href="mailto:blueautodoor@gmail.com">blueautodoor@gmail.com</a><br>
+  隐私政策：<a href="https://blueautodoor.github.io/doori-privacy/">blueautodoor.github.io/doori-privacy</a>
+  <div class="en">English support is available — please contact us by email. DOORI collects no personal data
+  (see the privacy policy above).</div>
+</div>
+
+<nav class="toc">
+  <b>目录</b>
+  <ol>
+    <li><a href="#s1">概述</a></li>
+    <li><a href="#s2">开始使用</a></li>
+    <li><a href="#s3">主屏幕</a></li>
+    <li><a href="#s4">连接控制器</a></li>
+    <li><a href="#s5">设置菜单</a></li>
+    <li><a href="#s6">网络设置</a></li>
+    <li><a href="#s7">自动门设置</a></li>
+    <li><a href="#s8">密码设置</a></li>
+    <li><a href="#s9">语言 · 显示</a></li>
+    <li><a href="#s10">使用记录</a></li>
+    <li><a href="#s11">故障排除</a></li>
+    <li><a href="#s12">常见问题</a></li>
+  </ol>
+</nav>
+
+<h2 id="s1">1. 概述</h2>
+<p>DOORI 应用可让您用智能手机直接连接自动门控制器（MCU），开关门并查看状态。</p>
+<ul>
+  <li><b>通信方式</b> — 在同一 WiFi 网络内直接连接自动门控制器。</li>
+  <li><b>仅限本地</b> — 仅在连接到自动门的 WiFi（AP）时才能使用。不支持移动数据或外部网络访问。</li>
+  <li><b>多语言</b> — 한국어 · English · 中文 · 日本語。</li>
+  <li><b>显示</b> — 主题（深色/浅色/白色）· 字体大小（小/标准/中/大，仅设置界面）· 按钮大小（固定/适应屏幕）。</li>
+</ul>
+<div class="warn"><b>重要</b> — 门控制、传感器设置和密码更改<b>都需要在已连接控制器的状态下</b>才能进行。
+密码和传感器数值保存在控制器（MCU）中，而不是应用里。</div>
+
+<h2 id="s2">2. 开始使用</h2>
+
+<h3>支持环境（兼容设备）</h3>
+<div class="tbl"><table>
+  <tr><th>类别</th><th>支持范围</th></tr>
+  <tr><td><b>Android</b></td><td>Android 5.1 以上（2015 年之后的大多数设备）</td></tr>
+  <tr><td><b>iPhone</b></td><td>iOS 13 以上 — iPhone 6s · SE（第一代）到最新机型</td></tr>
+  <tr><td><b>iPad</b></td><td>不支持（仅限 iPhone）</td></tr>
+  <tr><td><b>共通</b></td><td>能够连接到与自动门控制器<b>相同 WiFi</b> 的设备</td></tr>
+</table></div>
+<div class="note"><b>自动门 WiFi 连接默认为手动</b> — 请先在手机的 WiFi 设置中直接连接自动门 WiFi，然后再使用。
+若在<b>设置 ▸ 网络设置中开启「自动搜索 WiFi」并输入准确的 WiFi 名称</b>，应用内会出现可直接连接的按钮
+（Android 10 以上 · iPhone）。</div>
+<div class="warn"><b>iPhone 用户必读 — 本地网络权限</b>：iPhone（iOS 14 以上）在应用访问同一 WiFi 下的设备时，
+会弹出一次<b>"允许"DOORI"查找并连接到本地网络上的设备吗？"</b>的提示。必须点击<b>允许</b>才能连接控制器。
+如果误点了拒绝，请前往<b>设置应用 ▸ DOORI ▸ 本地网络</b>开启。（Android 无需额外权限即可直接连接。）</div>
+
+<h3>连接步骤</h3>
+<div class="figs">
+  <figure><img src="img/m01-home-offline.png" alt="主屏幕（离线）— 右下角连接按钮">
+    <figcaption>① 启动应用后的主屏幕（离线）— 右下角<b>连接</b>按钮</figcaption></figure>
+  <figure><img src="img/m02-pin.png" alt="密码输入界面">
+    <figcaption>② 连接后输入密码</figcaption></figure>
+</div>
+<ol>
+  <li>将智能手机连接到与自动门控制器<b>相同的 WiFi</b>。自动门会发出自己的 WiFi，请在手机 WiFi 设置中选择该 WiFi 并连接。</li>
+  <li>启动 DOORI 应用。重新启动应用时，启动画面显示约 1.4 秒后进入<b>主屏幕（离线）</b>（不会自动连接）。</li>
+  <li>点击主屏幕右下角系统区域的<b>连接</b>按钮。连接后会出现<b>密码输入（控制器认证）</b>界面。
+    请输入<b>安装时收到的 4 位密码</b>。认证后即可使用控制功能。</li>
+  <li>如果无法连接，请查看 <a href="#s11">11. 故障排除</a>；仍未解决时请联系我们。</li>
+</ol>
+<div class="note">密码在<b>连接并控制门时</b>输入。</div>
+
+<h2 id="s3">3. 主屏幕</h2>
+<div class="figs">
+  <figure><img src="img/m03-home.png" alt="主屏幕（已连接）">
+    <figcaption>主屏幕 — 状态面板 · 传感器 · 基本控制 · 开度设置 · 系统</figcaption></figure>
+  <figure><img src="img/m04-open.png" alt="开门过程中 — 传感器点亮">
+    <figcaption>开门过程中 SENSOR · SAFETY 标识点亮</figcaption></figure>
+</div>
+<p>主屏幕的外观随主题而变，但构成和操作方式相同。从上到下依次为以下区域。</p>
+
+<h3>3.1 顶部标题栏</h3>
+<p>左侧为应用图标和名称，点击右侧<b>设置</b>按钮进入设置菜单。</p>
+
+<h3>3.2 状态面板（STATUS）</h3>
+<div class="tbl"><table>
+  <tr><th>项目</th><th>含义</th></tr>
+  <tr><td><b>STATUS</b></td><td>当前状态 — 开门中 / 关门中 / 已开 / 已关 / 停止 / 错误 / 保持（完全开启保持）/ 锁定。无可显示状态时为 <code>-</code></td></tr>
+  <tr><td><b>RUNTIME</b></td><td>最后一次动作发生的时间（月/日 · 时:分:秒）。无动作记录时为 <code>-</code></td></tr>
+  <tr><td><b>LINK</b></td><td>控制器连接状态 — 已连接（绿色）/ 连接中…（琥珀色）/ 已断开（红色）</td></tr>
+</table></div>
+<p><b>STATUS 颜色区分</b> — 进行中（开门中/关门中）和停止为黄色，错误和锁定为红色，其他（已开/已关/保持）为绿色。</p>
+<div class="note"><b>动作确认提示 — 分隔条闪烁</b><br>
+按下控制按钮、指令实际发送的瞬间，状态面板内的<b>竖向分隔条</b>（STATUS | RUNTIME | LINK 之间的线）会短暂闪烁后消失。
+尤其是锁定、重置这类需要长按的按钮，手指会遮挡屏幕而难以判断动作时机，通过这个闪烁可以立即确认"指令已经发出"。
+闪烁<b>仅在指令实际发送时</b>出现。</div>
+
+<h3>3.3 传感器检测（SENSOR / SAFETY）</h3>
+<ul>
+  <li><b>SENSOR</b> — 检测到人或物体后<b>触发开门</b>的传感器。</li>
+  <li><b>SAFETY</b> — 安全传感器，<b>防止关门时夹住</b>（检测中不会关闭）。</li>
+</ul>
+<p>检测期间标识会显示红色闪烁。为了不漏掉瞬间的检测，闪烁至少保持约 1 秒。</p>
+
+<h3>3.4 基本控制（4 个按钮）</h3>
+<p>仅在已连接且未锁定时才会启用。</p>
+<div class="tbl"><table>
+  <tr><th>按钮</th><th>动作</th></tr>
+  <tr><td><b>开</b></td><td>按设定的开度打开门。</td></tr>
+  <tr><td><b>关</b></td><td>关闭门。</td></tr>
+  <tr><td><b>停止</b></td><td>让正在动作的门停在当前位置。</td></tr>
+  <tr><td><b>保持</b></td><td>完全打开后保持该状态。</td></tr>
+</table></div>
+
+<h3>3.5 开度设置（100 / 50 / 30）</h3>
+<p>预先选择门要开到什么程度的<b>开度</b>（3 个预设）。点击预设只会传送开度值，
+<b>门不会立即动作</b> — 之后按下<b>开</b>按钮时才会按此开度动作。</p>
+
+<h3>3.6 系统（3 个按钮）</h3>
+<div class="tbl"><table>
+  <tr><th>按钮</th><th>动作</th></tr>
+  <tr><td><b>锁定 / 解锁</b></td><td>为防止误触，需要<b>长按</b>（默认 1 秒）才会执行（按钮上显示为 <code>锁定(1S)</code>）。
+    锁门后控制按钮会被禁用。</td></tr>
+  <tr><td><b>重置</b></td><td>长按（默认 1 秒）向控制器发送重置指令。短按不会执行。</td></tr>
+  <tr><td><b>连接</b></td><td>开启和关闭连接。绿色的<b>已连接</b>为正常状态。</td></tr>
+</table></div>
+<div class="note">锁定和重置<b>仅在已连接控制器时</b>可用。未连接状态下显示为灰色且点击无效，只有<b>连接</b>按钮始终可用。</div>
+
+<h2 id="s4">4. 连接控制器</h2>
+<ul>
+  <li><b>连接</b> — 应用启动时不会自动连接，需要点击主屏幕的<b>连接</b>按钮。</li>
+  <li><b>认证</b> — 每次会话的首次连接需要输入一次密码。认证一次后，同一会话中即使断线重连也不会再次询问。</li>
+  <li><b>自动重连</b> — 连接断开时会自动重新连接，并使用之前输入的密码自动重新认证。
+    密码仅在应用运行期间保存在内存中，不会存储，因此关闭应用后再打开需要重新输入。</li>
+  <li><b>仅限本地</b> — WiFi 关闭时会断开连接，WiFi 恢复后会自动重新连接。</li>
+</ul>
+
+<h3>连接到自动门 WiFi — 默认在手机 WiFi 设置中手动连接</h3>
+<p>出厂默认设置下应用不会自动搜索 WiFi。请在<b>手机设置 ▸ WiFi 中连接自动门 WiFi</b>
+（名称形如 <code>WizFi360_…</code>），然后点击应用主屏幕的<b>连接</b>。
+若未连接到自动门 WiFi 就点击连接，会弹出提示窗口 — 更换手机 WiFi 后点击<b>重试</b>即可。</p>
+
+<h3>在应用内自动连接（自动搜索 WiFi — Android 10 以上 · iPhone）</h3>
+<p>在<b>设置 ▸ 网络设置</b>中<b>开启「自动搜索 WiFi」并输入自动门准确的 WiFi 名称</b>
+（例如 <code>WizFi360_123456</code> — 可在手机 WiFi 列表中确认）后，连接提示窗口中会出现
+<b>「连接 (WiFi 名称)」</b>按钮。无需退出到手机 WiFi 设置，可直接在应用内连接。</p>
+<ol>
+  <li>点击<b>「连接 (WiFi 名称)」</b>。</li>
+  <li>手机会询问<b>"要连接到设备吗？"</b> → 点击<b>连接</b>。（仅首次出现，之后手机会记住并直接连接。）</li>
+  <li>连接到自动门 WiFi 后，应用会自动连接到控制器并进入密码界面。</li>
+</ol>
+<div class="warn"><b>连接期间手机 WiFi 会切换到自动门 WiFi。</b>由于自动门 WiFi 没有互联网，
+期间其他应用的网络会切换到手机数据流量（LTE·5G）。如果无法使用数据流量，
+在使用 DOORI 期间将无法上网。这属于正常现象，<b>关闭应用或断开连接后会自动恢复原来的 WiFi。</b></div>
+
+<h2 id="s5">5. 设置菜单</h2>
+<div class="figs">
+  <figure><img src="img/m05-settings.png" alt="设置菜单">
+    <figcaption>设置菜单 — 通过主屏幕右上角的设置按钮进入</figcaption></figure>
+</div>
+<div class="tbl"><table>
+  <tr><th>项目</th><th>说明</th></tr>
+  <tr><td><b>自动门设置</b></td><td>调整 15 项动作参数 → <a href="#s7">第 7 章</a></td></tr>
+  <tr><td><b>网络设置</b></td><td>控制器 WiFi（自动搜索）→ <a href="#s6">第 6 章</a></td></tr>
+  <tr><td><b>使用记录</b></td><td>开关·事件日志 → <a href="#s10">第 10 章</a></td></tr>
+  <tr><td><b>语言设置</b></td><td>한국어/English/中文/日本語 → <a href="#s9">第 9 章</a></td></tr>
+  <tr><td><b>密码设置</b></td><td>更改 4 位密码 → <a href="#s8">第 8 章</a></td></tr>
+  <tr><td><b>显示设置</b></td><td>主题 · 字体大小 · 按钮大小 → <a href="#s9">第 9 章</a></td></tr>
+  <tr><td><b>信息</b></td><td>型号、固件、序列号等设备信息</td></tr>
+</table></div>
+
+<h2 id="s6">6. 网络设置</h2>
+<div class="figs">
+  <figure><img src="img/m06-network.png" alt="网络设置 — 控制器 WiFi">
+    <figcaption>网络设置 — 自动搜索 WiFi + 控制器 WiFi 名称和密码</figcaption></figure>
+</div>
+
+<h3>控制器 WiFi</h3>
+<ul>
+  <li><b>自动搜索 WiFi</b>（开关，默认关闭）— 关闭时在手机 WiFi 设置中直接连接（默认），
+    开启时应用会尝试用下方输入的 WiFi 名称自动连接。</li>
+  <li><b>控制器 WiFi 名称</b> — 自动门 WiFi 的<b>准确名称</b>（例如 <code>WizFi360_123456</code>）。
+    每台设备的后缀不同，请在手机 WiFi 列表中确认后原样输入。</li>
+  <li><b>WiFi 密码</b> — 自动门 WiFi 的密码（安装时收到的数值）。</li>
+</ul>
+<p>WiFi 信息仅作保存，不会影响当前连接（从下次连接开始生效）。即使周围有多台自动门，
+由于指定了准确名称，也只会连接到所输入的那一台。</p>
+
+<h2 id="s7">7. 自动门设置</h2>
+<div class="figs">
+  <figure><img src="img/m08-door-settings.png" alt="自动门设置 — 15 项参数">
+    <figcaption>自动门设置 — 用 +/− 按钮调整 15 个项目</figcaption></figure>
+</div>
+<div class="warn"><b>仅在已连接控制器时</b>才能使用（读取和保存数值都需要控制器）。</div>
+<div class="note">此界面的数值是<b>安装人员在现场调校好的</b>。随意更改可能导致门无法正常开关，
+如需调整请<b>联系安装公司</b>。</div>
+<p>进入后会自动读取控制器当前的 15 项设置。各项目可用 <code>+</code>/<code>−</code> 按钮调整。</p>
+<div class="tbl"><table>
+  <tr><th>#</th><th>项目</th><th>含义</th><th>范围</th></tr>
+  <tr><td>0</td><td>OPEN SPEED</td><td>开门速度</td><td>0~9</td></tr>
+  <tr><td>1</td><td>CLOSE SPEED</td><td>关门速度</td><td>0~9</td></tr>
+  <tr><td>2</td><td>OPEN WAIT</td><td>开启等待时间</td><td>0~9</td></tr>
+  <tr><td>3</td><td>RESERVED</td><td>保留（未使用）</td><td>—</td></tr>
+  <tr><td>4</td><td>OPEN BRAKE POS.</td><td>开门制动位置</td><td>0~9</td></tr>
+  <tr><td>5</td><td>CLOSE BRAKE POS.</td><td>关门制动位置</td><td>0~9</td></tr>
+  <tr><td>6</td><td>MOTOR LOCK SET</td><td>电机锁定</td><td>0~9</td></tr>
+  <tr><td>7</td><td>24V OUT</td><td>24V 输出</td><td>0~1</td></tr>
+  <tr><td>8</td><td>RETURN STRENGTH1</td><td>回位力 1</td><td>0~9</td></tr>
+  <tr><td>9</td><td>OPEN STOP POS.</td><td>开门终止位置</td><td>0~9</td></tr>
+  <tr><td>A</td><td>CLOSE STOP POS.</td><td>关门终止位置</td><td>0~9</td></tr>
+  <tr><td>b</td><td>CLOSE LOW SPEED</td><td>低速关门</td><td>0~9</td></tr>
+  <tr><td>c</td><td>RETURN STRENGTH2</td><td>回位力 2</td><td>0~9</td></tr>
+  <tr><td>d</td><td>SETTING STRENGTH</td><td>设定力</td><td>0~9</td></tr>
+  <tr><td>E</td><td>ONE_TOUCH SET</td><td>一键操作</td><td>0~1</td></tr>
+</table></div>
+<p>底部按钮 — <b>读取</b>：重新获取当前数值 · <b>保存</b>：将 15 个数值写入控制器
+（需确认控制器的成功响应才算完成）· <b>默认值</b>：将界面数值恢复为出厂默认值（保存前不会反映到控制器）。</p>
+<p>尚未读取到数值的项目会显示为 <code>—</code> 并禁止调整和保存 — 请先执行<b>读取</b>。
+保存后若无响应，会弹出"无保存响应"提示，可以<b>重新请求</b>。</p>
+
+<h2 id="s8">8. 密码设置</h2>
+<div class="figs">
+  <figure><img src="img/m09-password.png" alt="密码设置">
+    <figcaption>更改密码 — 当前 → 新密码 → 确认，共 3 步</figcaption></figure>
+</div>
+<div class="warn">密码<b>保存在控制器（MCU）中</b>。因此<b>只能在已连接的状态下</b>更改。</div>
+<p>更改步骤（4 位数字）：① 输入<b>当前密码</b>（由控制器验证）→ ② 输入<b>新密码</b> → ③ 再次输入<b>确认密码</b>。</p>
+<p>更改确定后会显示"密码已更改"的提示并返回主屏幕，由于控制器会短暂重启，
+屏幕上会出现<b>圆形倒计时</b>。大多数情况下几秒内就会自动重新连接
+（使用新密码自动认证 — 无需再次输入）。</p>
+
+<h2 id="s9">9. 语言 · 显示</h2>
+<div class="figs">
+  <figure><img src="img/m10-display.png" alt="显示设置">
+    <figcaption>显示设置 — 主题 · 字体大小 · 按钮大小</figcaption></figure>
+  <figure><img src="img/m12-home-light.png" alt="浅色主题主屏幕">
+    <figcaption>浅色主题</figcaption></figure>
+  <figure><img src="img/m13-home-white.png" alt="白色主题主屏幕">
+    <figcaption>白色主题</figcaption></figure>
+</div>
+<h3>语言设置</h3>
+<p>设置 → <b>语言设置</b> → 从 한국어 / English / 中文 / 日本語 中选择。选择后立即应用到整个界面。
+初次安装时会跟随手机（系统）语言，若为不支持的语言则显示英文。一旦手动选择，该选择将被保留。</p>
+<h3>显示设置（主题 · 字体大小 · 按钮大小）</h3>
+<ul>
+  <li><b>主题</b> — 深色 / 浅色 / 白色 三种。选择后立即生效。</li>
+  <li><b>字体大小</b> — 小/标准/中/大 四档。<b>只放大设置界面的文字</b>，不影响主屏幕。
+    更改档位也不会导致布局错乱。</li>
+  <li><b>按钮大小</b> — <b>适应屏幕</b>（默认）：按屏幕高度放大主屏幕按钮以填满空白 ·
+    <b>固定</b>：在所有设备上保持相同大小。</li>
+</ul>
+
+<h2 id="s10">10. 使用记录</h2>
+<div class="figs">
+  <figure><img src="img/m11-history.png" alt="使用记录">
+    <figcaption>使用记录 — 统计 + 期间筛选（今天/昨天/7 天/30 天）</figcaption></figure>
+</div>
+<p>在设置 → <b>使用记录</b>中查看门的动作历史。显示对象：开启/关闭完成 · 停止 · 错误等门动作，
+以及锁定 / 解锁 / 重置记录。</p>
+<div class="note">使用记录中<b>只保留控制器上实际发生的状态变化</b>。并非屏幕上显示的所有内容都会被记录，
+例如定期状态检查（健康检查）、传感器检测显示、开度更改等 — 这是为了防止相同状态反复出现而刷屏。</div>
+<ul>
+  <li>期间筛选：今天 / 昨天 / 7 天 / 30 天 · 顶部显示开门和关门次数统计。</li>
+  <li>保存：最近 <b>30 天</b> + 最多 <b>3,000 条</b>（超出部分自动删除）。可用<b>清除记录</b>全部删除。</li>
+</ul>
+
+<h2 id="s11">11. 故障排除</h2>
+<div class="tbl"><table>
+  <tr><th>症状</th><th>确认事项</th></tr>
+  <tr><td>无法连接</td><td>请确认智能手机与控制器处于<b>相同 WiFi</b> 后重试。
+    如果仍然不行，请联系安装公司或我们。</td></tr>
+  <tr><td>仅 iPhone 无法连接</td><td>可能是 iOS <b>本地网络权限</b>被关闭。
+    请在设置应用 ▸ DOORI ▸ 本地网络中开启后重新连接。</td></tr>
+  <tr><td>频繁断线</td><td>请检查 WiFi 信号强度和与控制器的距离。信号良好但仍持续断线时请联系我们。</td></tr>
+  <tr><td>控制按钮呈灰色（禁用）</td><td>处于未连接或<b>锁定</b>状态。</td></tr>
+  <tr><td>无法进入自动门设置</td><td>必须已连接控制器才能进入。</td></tr>
+  <tr><td>设置值只显示 <code>—</code></td><td>尚未读取。请点击<b>读取</b>。</td></tr>
+  <tr><td>无法更改密码</td><td>密码保存在控制器中 — 只能在<b>已连接状态</b>下更改。</td></tr>
+  <tr><td>想用移动数据连接</td><td>不支持。请连接到自动门的 WiFi（AP）后使用。</td></tr>
+  <tr><td>看不到自动门 WiFi 连接按钮</td><td>应用内自动连接需要<b>开启「自动搜索 WiFi」</b>才会出现
+    （设置 ▸ 网络设置，Android 10 以上 · iPhone）。否则请在手机 WiFi 设置中直接连接。</td></tr>
+  <tr><td>使用 DOORI 期间无法上网</td><td>这是正常的 — 连接期间手机 WiFi 会切换到没有互联网的自动门 WiFi。
+    关闭应用或断开连接后会恢复原来的 WiFi。</td></tr>
+  <tr><td>自动连接时提示"找不到 WiFi"</td><td>请确认设置 ▸ 网络设置中的<b>控制器 WiFi 名称</b>
+    与实际名称完全一致（可在手机 WiFi 列表中确认），以及 WiFi 密码是否正确。</td></tr>
+  <tr><td><b>离开一段时间回来后连接没有恢复</b></td><td>这是正常的。请参考下方
+    <b>「连接未自动恢复时」</b>，点击主屏幕的<b>连接</b>按钮。</td></tr>
+  <tr><td><b>用过其他 WiFi 后回来无法连接</b></td><td>请将手机<b>切回自动门 WiFi</b> 后点击主屏幕的<b>连接</b>。</td></tr>
+</table></div>
+
+<h3>连接未自动恢复时 — 手动重连</h3>
+<p><b>DOORI 只能在自动门 WiFi 内工作。</b>因此当手机离开该 WiFi 时，应用会
+<b>为了节省电量而暂停自动重连</b>。这不是故障，而是既定的行为。
+此时 <code>LINK</code> 栏会显示<b>已断开</b>，控制按钮会变灰锁定。</p>
+<div class="tbl"><table>
+  <tr><th>情况</th><th>应用的行为</th></tr>
+  <tr><td>远离门而离开自动门 WiFi</td><td>尝试几次后<b>静默停止</b></td></tr>
+  <tr><td>切换到手机数据（LTE·5G）</td><td>同样会停止（数据流量无法访问自动门）</td></tr>
+  <tr><td>切换到其他 WiFi（家庭·办公室等）</td><td>再尝试一会儿后停止</td></tr>
+  <tr><td>重新回到自动门 WiFi</td><td><b>自动</b>重新连接</td></tr>
+  <tr><td>信号弱导致短暂断线</td><td><b>自动</b>尝试重连几次</td></tr>
+</table></div>
+<p><b>解决方法 — 两个步骤即可。</b></p>
+<ol>
+  <li>请确认<b>手机是否已连接到自动门 WiFi</b>。</li>
+  <li><b>点击主屏幕右下角的 <code>连接</code> 按钮。</b>点击此按钮后应用会<b>从头开始</b>重新连接 —
+    这是即使自动重连已停止也始终有效、最可靠的方法。</li>
+</ol>
+<div class="note">离开一段时间回来后如果看不到连接，<b>请不要等待，直接点一次 <code>连接</code> 按钮。</b>
+这比等待应用自行重连要快得多。</div>
+
+<h2 id="s12">12. 常见问题</h2>
+<dl class="qa">
+  <dt>Q. 可以用多部手机同时控制吗？</dt>
+  <dd>可以。多部手机各自连接并认证后即可一起使用。但如果多部手机同时发送指令，
+  正在执行的指令会优先，部分指令可能被忽略，看起来与预期不同，因此建议操作门时一次只用一部手机。</dd>
+  <dt>Q. 忘记密码了。</dt>
+  <dd>密码保存在控制器（MCU）中。需要重置控制器或联系安装公司。</dd>
+  <dt>Q. 除了开度 100/50/30 之外不能设置其他数值吗？</dt>
+  <dd>主屏幕仅提供 100/50/30 三个预设（没有滑块）。</dd>
+  <dt>Q. 离开一会儿回来发现连接断开了，是故障吗？</dt>
+  <dd>不是。手机离开自动门 WiFi 后，应用会为了节省电量而停止自动重连。
+  请重新连接到自动门 WiFi 后点击主屏幕的<b>连接</b>按钮。</dd>
+  <dt>Q. 开着应用走到门前会自动连接吗？</dt>
+  <dd>如果一直连接着自动门 WiFi，通常会自动重新连接。但如果中途切换到了其他 WiFi 或手机数据，
+  则<b>需要手动点击 <code>连接</code> 按钮</b>。</dd>
+  <dt>Q. 能从互联网（外部）打开家里的自动门吗？</dt>
+  <dd>不支持。DOORI 只能在与自动门相同的 WiFi（AP）内连接。远程控制涉及安全问题，
+  由单独的产品方案处理。</dd>
+  <dt>Q. 应用会收集个人信息吗？</dt>
+  <dd>不会。没有账号、登录和注册，也不与外部服务器通信。
+  详情请参阅<a href="https://blueautodoor.github.io/doori-privacy/">隐私政策</a>。</dd>
+</dl>
+
+<footer>
+  <p>DOORI 自动门控制器应用 · 基于应用版本 1.1.0（2026-07）<br>
+  联系方式：<a href="mailto:blueautodoor@gmail.com">blueautodoor@gmail.com</a> ·
+  <a href="https://blueautodoor.github.io/doori-privacy/">隐私政策</a></p>
+  <p class="top"><a href="#top">↑ 返回顶部</a></p>
+</footer>
+
+</div>
+</body>
+</html>
