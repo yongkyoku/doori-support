@@ -148,6 +148,12 @@ close the app.</div>
     usually falls back to cellular data, and returns to your previous Wi-Fi when you disconnect.</td></tr>
   <tr><td>Forgot the password</td><td>The password is stored on the controller (MCU). Contact your
     installer, or reset the controller.</td></tr>
+  <tr><td><b>Not reconnected after you were away</b></td><td>This is normal. DOORI only works on the
+    door's Wi-Fi, so once your phone leaves that network the app <b>stops retrying to save battery</b>.
+    Rejoin the door's Wi-Fi, then tap <b>Connect</b> on the home screen — that always restarts the
+    connection, even after automatic retries have stopped.</td></tr>
+  <tr><td><b>Not reconnected after using another Wi-Fi</b></td><td>Switch your phone back to the
+    door's Wi-Fi, then tap <b>Connect</b> on the home screen.</td></tr>
 </table></div>
 
 <h2 id="faq">FAQ</h2>
@@ -156,6 +162,9 @@ close the app.</div>
   <dd>Yes — each phone connects and authenticates on its own. If two phones send commands at the
   same moment the command already in progress takes priority, so we recommend operating the door
   from one phone at a time.</dd>
+  <dt>Q. I was away for a while and the app is disconnected. Is it broken?</dt>
+  <dd>No. When your phone leaves the door's Wi-Fi, the app stops retrying to save battery. Rejoin the
+  door's Wi-Fi and tap <b>Connect</b> on the home screen.</dd>
   <dt>Q. Can I open my door from outside (over the internet)?</dt>
   <dd>No. DOORI works only on the door's local Wi-Fi. Remote access is intentionally not supported
   for security reasons.</dd>
