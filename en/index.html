@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>DOORI Support — User Guide</title>
 <meta name="description" content="Official support page for the DOORI autodoor controller app — user guide, troubleshooting, contact">
-<link rel="icon" href="../img/icon-192.png">
-<link rel="apple-touch-icon" href="../img/icon-192.png">
+<link rel="icon" href="img/icon-192.png">
+<link rel="apple-touch-icon" href="img/icon-192.png">
 <style>
   :root{
     --bg:#faf9f7; --card:#ffffff; --text:#1c2430; --muted:#5c6672; --line:#e3e0da;
@@ -35,6 +35,13 @@
     padding:16px 18px;margin:18px 0 24px;font-size:15px}
   .contact b{display:block;margin-bottom:6px}
   .contact a{color:var(--accent);text-decoration:none;word-break:break-all}
+  nav.toc{background:var(--card);border:1px solid var(--line);border-radius:12px;
+    padding:14px 18px;margin:14px 0 30px;font-size:14.5px}
+  nav.toc b{display:block;margin-bottom:6px}
+  nav.toc ol{margin:0;padding-left:22px;columns:2;column-gap:28px}
+  @media(max-width:560px){nav.toc ol{columns:1}}
+  nav.toc a{color:var(--accent);text-decoration:none}
+  nav.toc a:hover{text-decoration:underline}
   h2{font-size:20px;margin:44px 0 12px;padding-top:14px;border-top:1px solid var(--line)}
   h3{font-size:16.5px;margin:26px 0 8px}
   p,li{font-size:15px}
@@ -63,7 +70,7 @@
 <div class="wrap">
 
 <header class="site">
-  <img src="../img/icon-192.png" alt="DOORI app icon">
+  <img src="img/icon-192.png" alt="DOORI app icon">
   <div>
     <h1>DOORI — Support &amp; User Guide</h1>
     <div class="sub">Mobile app that controls and monitors an automatic door (MCU) over local Wi-Fi (Android · iPhone)</div>
@@ -78,106 +85,439 @@
   Privacy policy: <a href="https://yongkyoku.github.io/doori-privacy/">yongkyoku.github.io/doori-privacy</a>
 </div>
 
-<h2 id="overview">Overview</h2>
+<nav class="toc">
+  <b>Contents</b>
+  <ol>
+    <li><a href="#s1">Overview</a></li>
+    <li><a href="#s2">Getting started</a></li>
+    <li><a href="#s3">Home screen</a></li>
+    <li><a href="#s4">Connecting to the controller</a></li>
+    <li><a href="#s5">Settings menu</a></li>
+    <li><a href="#s6">Network settings</a></li>
+    <li><a href="#s7">Door settings</a></li>
+    <li><a href="#s8">Password</a></li>
+    <li><a href="#s9">Language · Display</a></li>
+    <li><a href="#s10">History</a></li>
+    <li><a href="#s11">Troubleshooting</a></li>
+    <li><a href="#s12">FAQ</a></li>
+  </ol>
+</nav>
+
+<h2 id="s1">1. Overview</h2>
 <p>DOORI connects your phone directly to an automatic-door controller (MCU) so you can open, close,
 and monitor the door.</p>
 <ul>
-  <li><b>Connection</b> — connects directly to the door controller on the same Wi-Fi network.</li>
+  <li><b>Connection</b> — connects directly to the door controller on the same Wi-Fi network
+    (default port 50001).</li>
   <li><b>Local only</b> — the app works only while your phone is on the door's Wi-Fi (AP). Cellular
     data and remote access are not supported.</li>
-  <li><b>Languages</b> — Korean · English · Chinese · Japanese. Themes: dark / light / white.</li>
+  <li><b>Languages</b> — Korean · English · 中文 · 日本語.</li>
+  <li><b>Display</b> — theme (dark / light / white) · text size (small / normal / medium / large,
+    settings screens only) · button size (fixed / fit to screen).</li>
 </ul>
 <div class="warn"><b>Important</b> — door control, door settings, and password changes all require an
 active connection. The password and door parameters are stored on the controller (MCU), not in the app.</div>
 
-<h2 id="start">Getting started</h2>
-<div class="figs">
-  <figure><img src="../img/m01-home-offline.png" alt="Home screen (offline) — Connect button at bottom right">
-    <figcaption>① Home (offline) — tap <b>Connect</b> at the bottom right</figcaption></figure>
-  <figure><img src="../img/m02-pin.png" alt="Password screen">
-    <figcaption>② Enter the controller password</figcaption></figure>
-</div>
-<ol>
-  <li>Join the door's Wi-Fi network with your phone (its name looks like <code>WizFi360_…</code> —
-    check your phone's Wi-Fi list).</li>
-  <li>Launch DOORI. The app opens on the home screen in offline mode (it does not auto-connect).</li>
-  <li>Tap the <b>Connect</b> button at the bottom right of the home screen.</li>
-  <li>When the password screen appears, enter the <b>4-digit password provided by your installer</b>. After that, all controls are enabled.</li>
-</ol>
+<h2 id="s2">2. Getting started</h2>
+
+<h3>Supported devices</h3>
+<div class="tbl"><table>
+  <tr><th>Platform</th><th>Requirement</th></tr>
+  <tr><td><b>Android</b></td><td>Android 5.1 or later (most devices released since 2015)</td></tr>
+  <tr><td><b>iPhone</b></td><td>iOS 13 or later — iPhone 6s · SE (1st gen) and newer</td></tr>
+  <tr><td><b>iPad</b></td><td><b>Not supported</b> (iPhone-only app)</td></tr>
+  <tr><td><b>All</b></td><td>The device must be able to join the same Wi-Fi as the door controller</td></tr>
+</table></div>
+
+<div class="note"><b>Joining the door's Wi-Fi is manual by default</b> — connect to the door's Wi-Fi
+from your phone's Wi-Fi settings, then use the app. If you turn on <b>Auto WiFi join</b> in
+Settings ▸ Network and enter the exact Wi-Fi name, the app can join it for you (Android 10+ · iPhone).
+On Android 9 and older this in-app join is not available, so you always connect manually — the app
+itself works the same either way.</div>
+
 <div class="warn"><b>iPhone users — Local Network permission</b>: on iOS 14+, the first connection
 shows a popup asking to allow DOORI to find and connect to devices on your local network. You must
-tap <b>Allow</b>. If you declined it by mistake, enable it in
-<b>Settings ▸ DOORI ▸ Local Network</b>, then connect again.</div>
-<div class="note">You can also let the app join the door's Wi-Fi for you: turn on
-<b>Auto Wi-Fi join</b> in Settings ▸ Network and enter the door's exact Wi-Fi name
-(Android 10+ · iPhone). While connected to the door's Wi-Fi — which has no internet — your other
-apps fall back to cellular data; your phone returns to its previous Wi-Fi when you disconnect or
-close the app.</div>
+tap <b>Allow</b>, or the app cannot reach the controller. If you declined by mistake, enable it in
+<b>Settings app ▸ DOORI ▸ Local Network</b>. (Android needs no extra permission.)</div>
 
-<h2 id="home">Home screen at a glance</h2>
+<h3>Connection steps</h3>
 <div class="figs">
-  <figure><img src="../img/m03-home.png" alt="Home screen (connected)">
-    <figcaption>Status panel · sensors · main controls · aperture presets · system</figcaption></figure>
-  <figure><img src="../img/m04-open.png" alt="Door opening — sensors lit">
-    <figcaption>Sensor chips light up while the door operates</figcaption></figure>
+  <figure><img src="img/m01-home-offline.png" alt="Home screen (offline) — Connect button at bottom right">
+    <figcaption>① Home (offline) — tap <b>Connect</b> at the bottom right</figcaption></figure>
+  <figure><img src="img/m02-pin.png" alt="Password screen">
+    <figcaption>② Enter the controller password</figcaption></figure>
+  <figure><img src="img/m03-home.png" alt="Home screen when connected">
+    <figcaption>③ Connected — all controls are enabled</figcaption></figure>
 </div>
+<ol>
+  <li>Join the door controller's <b>Wi-Fi</b> with your phone. The door broadcasts its own Wi-Fi —
+    <b>ask your installer for the network name and password.</b></li>
+  <li>Launch DOORI. On a cold start a splash screen shows for about 1.4 seconds, then the app opens
+    on the <b>home screen in offline mode</b> (it does not connect automatically). The splash appears
+    only on a fresh launch, not when you return from another app.</li>
+  <li>Tap the <b>Connect</b> button in the system area at the bottom right of the home screen.
+    <ul>
+      <li>If you are on another Wi-Fi or Wi-Fi is off, a dialog appears with a
+        <b>(Wi-Fi name) join</b> button (Android 10+).</li>
+      <li>Once connected, the <b>password screen</b> appears. Enter the
+        <b>4-digit password provided by your installer</b>.</li>
+      <li><code>Connecting…</code> = in progress / <code>Online</code> (green) = normal /
+        <code>Connect</code> = disconnected (tap to reconnect)</li>
+    </ul>
+  </li>
+</ol>
+<div class="note">The password is only requested when you connect in order to control the door.</div>
+
+<h2 id="s3">3. Home screen</h2>
+<p>The home screen looks different depending on the theme, but the layout and behaviour are identical.
+From top to bottom:</p>
+
+<h3>3.1 Header</h3>
+<p>App icon, app name and model on the left; the <b>Settings</b> button on the right.</p>
+
+<h3>3.2 Status panel</h3>
+<div class="tbl"><table>
+  <tr><th>Field</th><th>Meaning</th></tr>
+  <tr><td><b>STATUS</b></td><td>Current state — <code>OPENING</code> / <code>CLOSING</code> /
+    <code>OPEN</code> / <code>CLOSED</code> / <code>STOPPED</code> / <code>ERROR</code> /
+    <code>HOLD</code> / <code>LOCKED</code>. Shows <code>-</code> when there is nothing to report.</td></tr>
+  <tr><td><b>RUNTIME</b></td><td>When the last action happened (month/day and time, on two lines).
+    Shows <code>-</code> if there is no history.</td></tr>
+  <tr><td><b>LINK</b></td><td>Connection state — <code>Online</code> (green) /
+    <code>Connecting…</code> (amber) / <code>Offline</code> (red)</td></tr>
+</table></div>
+<p><b>Colours</b>: in-progress states and stop are yellow, error and locked are red, everything else
+(open / closed / hold) is green.</p>
+<p><b>How STATUS and RUNTIME are filled in</b></p>
 <ul>
-  <li><b>Status panel</b> — STATUS (door state) · RUNTIME (time of the last action) · LINK
-    (connection). The thin divider bars flash briefly each time a command is actually sent — that
-    flash is your confirmation cue.</li>
-  <li><b>SENSOR / SAFETY</b> — the passage sensor (triggers opening) and the safety sensor
-    (prevents closing on someone) blink red while detecting.</li>
-  <li><b>Open / Close / Stop / Hold</b> — main controls; enabled while connected and unlocked.</li>
-  <li><b>Aperture presets (100 / 50 / 30%)</b> — choose how far the door opens; the door moves on
-    the next <b>Open</b> command.</li>
-  <li><b>Lock / Reset</b> — hold for 1 second (shown as <code>Lock(1S)</code>) to prevent
-    accidental taps. <b>Connect</b> toggles the connection.</li>
+  <li><b>Before connecting</b> — the last recorded action and its time. If there is no history at all,
+    both show <code>-</code>.</li>
+  <li><b>The moment you connect</b> — STATUS shows the controller's current state. Because that is a
+    state and not an action you just performed, <b>RUNTIME stays <code>-</code></b>.</li>
+  <li><b>After connecting</b> — once the door actually moves, RUNTIME is stamped and updates with
+    every action.</li>
+</ul>
+<div class="note"><b>Action feedback</b> — when a command is actually sent, the vertical dividers
+inside the status panel flash green briefly. This matters most for <b>Lock</b> and <b>Reset</b>,
+which fire only after a long press and are hidden under your finger. The flash appears immediately,
+while the STATUS text updates only after the controller replies.</div>
+
+<h3>3.3 Sensor indicators (SENSOR / SAFETY)</h3>
+<ul>
+  <li><b>SENSOR</b> — detects a person or object and triggers the door to open.</li>
+  <li><b>SAFETY</b> — the safety sensor that prevents the door from closing on someone.</li>
+</ul>
+<p>The two have opposite roles: SAFETY <i>prevents closing</i>, SENSOR <i>triggers opening</i>.
+An indicator blinks red while detecting, and stays lit for at least about one second so that brief
+detections are still visible.</p>
+
+<h3>3.4 Primary controls</h3>
+<div class="figs">
+  <figure><img src="img/m04-open.png" alt="Door opening with the sensor indicator lit">
+    <figcaption>Opening — the SENSOR indicator lights up</figcaption></figure>
+</div>
+<div class="tbl"><table>
+  <tr><th>Button</th><th>Action</th></tr>
+  <tr><td><b>Open</b></td><td>Opens the door to the selected aperture.</td></tr>
+  <tr><td><b>Close</b></td><td>Closes the door.</td></tr>
+  <tr><td><b>Stop</b></td><td>Stops the door where it is.</td></tr>
+  <tr><td><b>Hold</b></td><td>Opens fully and keeps the door open.</td></tr>
+</table></div>
+<p>These are enabled only while connected and unlocked.</p>
+
+<h3>3.5 Aperture preset (100 / 50 / 30)</h3>
+<p>Choose how far the door opens. Tapping a preset only sends the aperture to the controller —
+<b>the door does not move immediately</b>. It takes effect the next time you tap <b>Open</b>.</p>
+
+<h3>3.6 System buttons</h3>
+<div class="warn"><b>Lock and Reset are enabled only while connected</b>, like the primary controls.
+Only <b>Connect</b> stays active when offline, since it is what establishes the connection.</div>
+<div class="tbl"><table>
+  <tr><th>Button</th><th>Action</th></tr>
+  <tr><td><b>Lock / Unlock</b></td><td>Requires a <b>long press</b> (1 second by default) to avoid
+    accidental taps; the button shows the hold time, e.g. <code>Lock(1S)</code>. While locking, it
+    shows <i>Locking…</i> until the controller confirms.</td></tr>
+  <tr><td><b>Reset</b></td><td>Requires a <b>long press</b> (1 second by default,
+    shown as <code>Reset(1S)</code>) to send a reset command to the controller. A short tap does nothing.</td></tr>
+  <tr><td><b>Connect / Online / Connecting…</b></td><td>Connects and disconnects. Green
+    <code>Online</code> is the normal state.</td></tr>
+</table></div>
+
+<h2 id="s4">4. Connecting to the controller</h2>
+<ul>
+  <li><b>Connecting</b> — the app never connects on launch; you tap <b>Connect</b> on the home screen.</li>
+  <li><b>Authentication</b> — the password is requested once per session, on the first connection.
+    After a successful entry, an <i>Authenticated</i> confirmation shows for about 1.2 seconds before
+    the home screen appears.</li>
+  <li><b>Automatic re-authentication</b> — if the link drops and comes back, the app re-authenticates
+    silently with the password you already entered. That password is kept in memory only while the app
+    is running, so you enter it again after fully closing the app.</li>
+  <li><b>Local only</b> — if Wi-Fi goes away the app disconnects, and reconnects when it returns.</li>
+  <li>Brief drops are handled silently. Longer outages raise a notification.</li>
+  <li>The connection is checked automatically about every 3 seconds.</li>
 </ul>
 
-<h2 id="troubleshoot">Troubleshooting</h2>
+<h3>Joining the door's Wi-Fi — manual by default</h3>
+<p>Out of the box the app does not join Wi-Fi for you. Join the door's Wi-Fi from
+<b>your phone's Settings ▸ Wi-Fi</b> (the name looks like <code>WizFi360_…</code>), then tap
+<b>Connect</b> in the app.</p>
+<p>If you tap <b>Connect</b> while on a different network, a dialog explains that you need to join the
+controller's Wi-Fi first. Switch networks and tap <b>Retry</b>.</p>
+
+<h3>Joining from inside the app (Auto WiFi join — Android 10+ · iPhone)</h3>
+<p>In <b>Settings ▸ Network</b>, turn on <b>Auto WiFi join</b> and enter the door's exact Wi-Fi name
+(for example <code>WizFi360_123456</code> — check your phone's Wi-Fi list). A
+<b>(Wi-Fi name) join</b> button then appears in the connection dialog, so you never have to leave the app.</p>
+<div class="note">If Wi-Fi is switched off, the button becomes <b>Turn on Wi-Fi</b> (Android). Phone
+policy does not let an app enable Wi-Fi directly, so a system panel slides over the app instead of
+sending you to the Settings app.</div>
+<ol>
+  <li>Tap <b>(Wi-Fi name) join</b>.</li>
+  <li>Your phone asks <i>"Connect to device?"</i> — tap <b>Connect</b>. This confirmation appears
+    <b>only the first time</b>; afterwards your phone remembers it.</li>
+  <li>Once joined, the app connects to the controller and moves on to the password screen.</li>
+</ol>
+<div class="warn"><b>While connected, your phone's Wi-Fi switches to the door's Wi-Fi</b>, which has no
+internet. Other apps normally fall back to cellular data. If cellular is unavailable (no SIM, data
+turned off), you will have no internet while using DOORI. This is expected —
+<b>closing the app or disconnecting returns you to your previous Wi-Fi.</b></div>
+
+<h2 id="s5">5. Settings menu</h2>
+<div class="figs">
+  <figure><img src="img/m05-settings.png" alt="Settings menu">
+    <figcaption>Settings menu</figcaption></figure>
+</div>
+<div class="tbl"><table>
+  <tr><th>Item</th><th>Description</th></tr>
+  <tr><td><b>Door Settings</b> (top)</td><td>15 operating parameters → <a href="#s7">7</a></td></tr>
+  <tr><td><b>Network</b></td><td>Controller Wi-Fi for automatic joining → <a href="#s6">6</a></td></tr>
+  <tr><td><b>History</b></td><td>Door activity log → <a href="#s10">10</a></td></tr>
+  <tr><td><b>Language</b></td><td>Korean / English / 中文 / 日本語 → <a href="#s9">9</a></td></tr>
+  <tr><td><b>Password</b></td><td>Change the 4-digit password → <a href="#s8">8</a></td></tr>
+  <tr><td><b>Display</b></td><td>Theme · text size · button size → <a href="#s9">9</a></td></tr>
+  <tr><td><b>Info</b></td><td>Model, firmware, serial and other device details</td></tr>
+</table></div>
+
+<h2 id="s6">6. Network settings</h2>
+<p>Open <b>Network</b> from the settings list.</p>
+<div class="figs">
+  <figure><img src="img/m06-network.png" alt="Network settings — controller Wi-Fi">
+    <figcaption>Network settings — controller Wi-Fi</figcaption></figure>
+</div>
+<h3>Controller Wi-Fi</h3>
+<p>This is the door Wi-Fi used by the in-app join described in <a href="#s4">section 4</a>.</p>
+<ul>
+  <li><b>Auto WiFi join</b> (off by default)
+    <ul>
+      <li><b>Off</b> — the app does not join Wi-Fi. Connect to the door's Wi-Fi from your phone's
+        Wi-Fi settings, then tap <b>Connect</b>. This works the same on every phone.</li>
+      <li><b>On</b> — the app tries to join the Wi-Fi name below, and a join button appears in the
+        connection dialog.</li>
+    </ul>
+  </li>
+  <li><b>Controller WiFi name</b> — the <b>exact</b> name of the door's Wi-Fi
+    (e.g. <code>WizFi360_123456</code>). The last digits differ per unit, so check your phone's Wi-Fi
+    list and type it exactly.</li>
+  <li><b>WiFi password</b> — the door Wi-Fi password (as provided by your installer). Use the button
+    on the right to show or hide it.</li>
+</ul>
+<p>Wi-Fi details are only saved; they do not affect the current connection and apply from the next one.
+Because you specify an exact name, the app joins only that one door even if several are nearby.</p>
+<div class="note"><b>Leaving without saving</b>: if you change a value and press back, an
+<i>"Unsaved changes"</i> dialog appears — <b>[Save]</b> or <b>[Don't save]</b>. Tapping outside just
+closes the dialog and keeps you on the screen.</div>
+<div class="note">The controller's <b>connection address and communication settings</b> are configured
+during installation and do not need to be changed. If you cannot connect, please
+<b>contact your installer</b> rather than changing them yourself.</div>
+
+<h2 id="s7">7. Door settings</h2>
+<p>Open <b>Door Settings</b> at the top of the settings list.</p>
+<div class="figs">
+  <figure><img src="img/m08-door-settings.png" alt="Door settings — 15 parameters">
+    <figcaption>Door settings — 15 parameters adjusted with +/− buttons</figcaption></figure>
+</div>
+<div class="warn">Works <b>only while connected</b> to the controller (both reading and saving need it).
+If you are offline, a connection dialog appears instead.</div>
+<div class="note">These values are set by your installer to match the door on site. Changing them at
+random can stop the door from opening and closing correctly — if an adjustment is needed, please
+<b>contact your installer</b>.</div>
+<p>On entry the app reads all 15 current values from the controller. Adjust each one with the
+<code>+</code> and <code>−</code> buttons.</p>
+<div class="tbl"><table>
+  <tr><th>#</th><th>Item</th><th>Meaning</th><th>Range</th></tr>
+  <tr><td>0</td><td>OPEN SPEED</td><td>Opening speed</td><td>0–9</td></tr>
+  <tr><td>1</td><td>CLOSE SPEED</td><td>Closing speed</td><td>0–9</td></tr>
+  <tr><td>2</td><td>OPEN WAIT</td><td>Hold-open time</td><td>0–9</td></tr>
+  <tr><td>3</td><td>RESERVED</td><td>Reserved (unused)</td><td>—</td></tr>
+  <tr><td>4</td><td>OPEN BRAKE POS.</td><td>Opening brake position</td><td>0–9</td></tr>
+  <tr><td>5</td><td>CLOSE BRAKE POS.</td><td>Closing brake position</td><td>0–9</td></tr>
+  <tr><td>6</td><td>MOTOR LOCK SET</td><td>Motor lock</td><td>0–9</td></tr>
+  <tr><td>7</td><td>24V OUT</td><td>24 V output</td><td>0–1</td></tr>
+  <tr><td>8</td><td>RETURN STRENGTH1</td><td>Return force 1</td><td>0–9</td></tr>
+  <tr><td>9</td><td>OPEN STOP POS.</td><td>Opening stop position</td><td>0–9</td></tr>
+  <tr><td>A</td><td>CLOSE STOP POS.</td><td>Closing stop position</td><td>0–9</td></tr>
+  <tr><td>b</td><td>CLOSE LOW SPEED</td><td>Low-speed closing</td><td>0–9</td></tr>
+  <tr><td>c</td><td>RETURN STRENGTH2</td><td>Return force 2</td><td>0–9</td></tr>
+  <tr><td>d</td><td>SETTING STRENGTH</td><td>Setting force</td><td>0–9</td></tr>
+  <tr><td>E</td><td>ONE_TOUCH SET</td><td>One-touch</td><td>0–1</td></tr>
+</table></div>
+<p><b>Buttons</b></p>
+<ul>
+  <li><b>READ</b> — fetch the current values from the controller again.</li>
+  <li><b>SAVE</b> — write all 15 values to the controller. The app always waits for the controller's
+    reply, and the button is disabled once saving succeeds.</li>
+  <li><b>DEFAULT</b> — reset the on-screen values to the factory defaults (nothing is sent to the
+    controller until you save).</li>
+</ul>
+<ul>
+  <li>Values that have not been read yet show <code>—</code>, and editing is blocked. Run
+    <b>READ</b> first.</li>
+  <li>If there is no reply, the app retries once and then shows a <i>"Could not read settings"</i>
+    dialog.</li>
+  <li>If the controller does not reply to a save, a <i>"No response"</i> dialog offers
+    <b>[Retry]</b>. If a late reply arrives and succeeds, the dialog closes by itself.</li>
+</ul>
+
+<h2 id="s8">8. Password</h2>
+<div class="figs">
+  <figure><img src="img/m09-password.png" alt="Password change — enter the current password">
+    <figcaption>Password change — step 1, current password</figcaption></figure>
+</div>
+<p>Open <b>Password</b> from the settings list to change the 4-digit controller password.</p>
+<ol>
+  <li>Enter the <b>current password</b>.</li>
+  <li>Enter the <b>new password</b> (it cannot be the same as the current one).</li>
+  <li>Enter the new password again to <b>confirm</b>.</li>
+</ol>
+<div class="warn">The password is stored <b>on the controller</b>, not in the app — reinstalling the
+app does not reset it. If you forget it, contact your installer.</div>
+<div class="note">After a successful change the controller restarts, so a countdown timer appears for
+a few seconds while the app reconnects automatically. This is normal.</div>
+
+<h2 id="s9">9. Language · Display</h2>
+<div class="figs">
+  <figure><img src="img/m10-display.png" alt="Display settings">
+    <figcaption>Display — theme, text size, button size</figcaption></figure>
+  <figure><img src="img/m12-home-light.png" alt="Home screen, light theme">
+    <figcaption>Light theme</figcaption></figure>
+  <figure><img src="img/m13-home-white.png" alt="Home screen, white theme">
+    <figcaption>White theme</figcaption></figure>
+</div>
+<h3>Language</h3>
+<p>Korean · English · 中文 · 日本語. On first launch the app follows your phone's language, falling
+back to English if it is not one of the four. Once you pick a language explicitly, that choice is kept.</p>
+<h3>Display</h3>
+<ul>
+  <li><b>Theme</b> — dark / light / white.</li>
+  <li><b>Text size</b> — small / normal / medium / large. This affects the <b>settings screens only</b>;
+    the home screen is unchanged so the controls stay in the same place.</li>
+  <li><b>Button size</b> — fixed, or fit to screen (default). "Fit to screen" scales the home buttons
+    to fill the available height on your device.</li>
+</ul>
+
+<h2 id="s10">10. History</h2>
+<div class="figs">
+  <figure><img src="img/m11-history.png" alt="Activity history">
+    <figcaption>History — door activity log</figcaption></figure>
+</div>
+<p>Open <b>History</b> from the settings list to review what the door has done.</p>
+<ul>
+  <li>Recorded: <b>open / close completed · stop · error</b> plus <b>lock / unlock / reset</b>.
+    Intermediate states such as "opening" are not recorded separately.</li>
+</ul>
+<p>History keeps only <b>state changes that actually happened on the controller</b>. Periodic status
+checks, sensor indications and aperture changes are shown on screen but not recorded — this keeps the
+log from filling up with repeated identical entries.</p>
+<ul>
+  <li>Filters: today / yesterday / 7 days / 30 days, with open and close counts at the top.</li>
+  <li>Retention: the most recent <b>30 days</b> and up to <b>3,000 entries</b> (older entries are
+    removed automatically). You can also clear the history entirely.</li>
+</ul>
+
+<h2 id="s11">11. Troubleshooting</h2>
 <div class="tbl"><table>
   <tr><th>Symptom</th><th>What to check</th></tr>
   <tr><td>Cannot connect</td><td>Make sure your phone is on the <b>same Wi-Fi</b> as the controller
-    and try again. If it still fails, contact your installer or email us.</td></tr>
+    and try again. If it still fails, check the door's power and your distance from it, then contact
+    your installer.</td></tr>
   <tr><td>Cannot connect on iPhone only</td><td>The iOS <b>Local Network</b> permission is off.
     Enable it in Settings ▸ DOORI ▸ Local Network.</td></tr>
-  <tr><td>Frequent disconnects</td><td>Check the Wi-Fi signal strength and your distance from the
-    controller. If it persists on a good signal, contact us.</td></tr>
+  <tr><td>Frequent disconnects</td><td>Check your distance from the door and anything blocking the
+    signal — a weak Wi-Fi signal causes repeated drops and reconnects. If it persists, contact your
+    installer.</td></tr>
   <tr><td>Control buttons are gray</td><td>The app is not connected, or the door is <b>locked</b>.</td></tr>
+  <tr><td>Cannot open Door Settings</td><td>You must be connected to the controller.</td></tr>
+  <tr><td>Values show only <code>—</code></td><td>They have not been read yet. Tap <b>READ</b>.</td></tr>
+  <tr><td>Cannot change the password</td><td>The password lives on the controller, so you must be
+    <b>connected</b> to change it.</td></tr>
+  <tr><td>Want to connect over cellular data</td><td>Not supported. Join the door's Wi-Fi (AP) first.</td></tr>
+  <tr><td>No join button for the door's Wi-Fi</td><td>The in-app join appears only when
+    <b>Auto WiFi join</b> is on (Settings ▸ Network, Android 10+ · iPhone). Otherwise connect from your
+    phone's Wi-Fi settings.</td></tr>
   <tr><td>No internet while using DOORI</td><td>Normal — the door's Wi-Fi has no internet. Your phone
     usually falls back to cellular data, and returns to your previous Wi-Fi when you disconnect.</td></tr>
+  <tr><td>"Wi-Fi not found" when joining</td><td>Check that the <b>Controller WiFi name</b> in
+    Settings ▸ Network matches the real name exactly (see your phone's Wi-Fi list), and that the
+    password is correct.</td></tr>
   <tr><td>Forgot the password</td><td>The password is stored on the controller (MCU). Contact your
-    installer, or reset the controller.</td></tr>
-  <tr><td><b>Not reconnected after you were away</b></td><td>This is normal. DOORI only works on the
-    door's Wi-Fi, so once your phone leaves that network the app <b>stops retrying to save battery</b>.
-    Rejoin the door's Wi-Fi, then tap <b>Connect</b> on the home screen — that always restarts the
-    connection, even after automatic retries have stopped.</td></tr>
+    installer.</td></tr>
+  <tr><td><b>Not reconnected after you were away</b></td><td>This is normal — see
+    <b>"When the app does not reconnect on its own"</b> below.</td></tr>
   <tr><td><b>Not reconnected after using another Wi-Fi</b></td><td>Switch your phone back to the
     door's Wi-Fi, then tap <b>Connect</b> on the home screen.</td></tr>
 </table></div>
 
-<h2 id="faq">FAQ</h2>
+<h3>When the app does not reconnect on its own — reconnecting manually</h3>
+<p><b>DOORI only works on the door's Wi-Fi.</b> So once your phone leaves that network, the app
+<b>stops retrying in order to save battery</b>. This is expected behaviour, not a fault. The
+<code>LINK</code> field shows <b>Offline</b> and the control buttons are greyed out.</p>
+<div class="tbl"><table>
+  <tr><th>Situation</th><th>What the app does</th></tr>
+  <tr><td>You walk away and leave the door's Wi-Fi</td><td>Tries a few times, then <b>stops quietly</b></td></tr>
+  <tr><td>Your phone falls back to cellular data</td><td>Also stops (the door cannot be reached over cellular)</td></tr>
+  <tr><td>You move to another Wi-Fi (home, office…)</td><td>Tries a little longer, then stops</td></tr>
+  <tr><td>You return to the door's Wi-Fi</td><td>Usually reconnects <b>automatically</b></td></tr>
+  <tr><td>A brief drop from a weak signal</td><td>Retries <b>automatically</b> a few times</td></tr>
+</table></div>
+<p><b>Two steps to fix it</b></p>
+<ol>
+  <li><b>Check that your phone is on the door's Wi-Fi.</b></li>
+  <li><b>Tap the <code>Connect</code> button at the bottom right of the home screen.</b> This restarts
+    the connection from scratch and always works, even after automatic retries have stopped.</li>
+</ol>
+<div class="note">If you have been away for a while and the app is not connected,
+<b>don't wait — just tap <code>Connect</code> once.</b> It is much faster than waiting for the app to
+reconnect by itself.</div>
+
+<h2 id="s12">12. FAQ</h2>
 <dl class="qa">
   <dt>Q. Can several phones control the door at the same time?</dt>
-  <dd>Yes — each phone connects and authenticates on its own. If two phones send commands at the
-  same moment the command already in progress takes priority, so we recommend operating the door
-  from one phone at a time.</dd>
+  <dd>Yes. Each phone connects and authenticates on its own. However, if several phones send commands
+  at once, a command already in progress takes priority and others may appear to be ignored — so it is
+  best to operate the door from one phone at a time.</dd>
   <dt>Q. I was away for a while and the app is disconnected. Is it broken?</dt>
   <dd>No. When your phone leaves the door's Wi-Fi, the app stops retrying to save battery. Rejoin the
-  door's Wi-Fi and tap <b>Connect</b> on the home screen.</dd>
+  door's Wi-Fi and tap <b>Connect</b> on the home screen (see <a href="#s11">Troubleshooting</a>).</dd>
+  <dt>Q. If I leave the app running, will it connect by itself when I reach the door?</dt>
+  <dd>If your phone stayed on the door's Wi-Fi, it usually reconnects automatically. But if it switched
+  to another Wi-Fi or to cellular data in the meantime, you need to <b>tap <code>Connect</code>
+  yourself</b>.</dd>
+  <dt>Q. I forgot the password.</dt>
+  <dd>The password is stored on the controller (MCU). Contact your installer, or reset the controller.</dd>
+  <dt>Q. Can I use apertures other than 100 / 50 / 30?</dt>
+  <dd>The home screen offers only those three presets (there is no slider).</dd>
   <dt>Q. Can I open my door from outside (over the internet)?</dt>
-  <dd>No. DOORI works only on the door's local Wi-Fi. Remote access is intentionally not supported
-  for security reasons.</dd>
+  <dd>No. DOORI connects only within the same Wi-Fi (AP) as the door. Remote control raises security
+  concerns and is handled as a separate product configuration.</dd>
   <dt>Q. Does the app collect any personal data?</dt>
-  <dd>No. There is no account, login, or sign-up, and the app talks to no external servers. See the
-  <a href="https://yongkyoku.github.io/doori-privacy/">privacy policy</a>.</dd>
+  <dd>No. There are no accounts, no sign-up and no communication with external servers. See the
+  <a href="https://yongkyoku.github.io/doori-privacy/">privacy policy</a> for details.</dd>
 </dl>
 
 <footer>
   <p>DOORI autodoor controller app · based on app version 1.1.0 (2026-07)<br>
   Contact: <a href="mailto:apracsix@gmail.com">apracsix@gmail.com</a> ·
-  <a href="https://yongkyoku.github.io/doori-privacy/">Privacy policy</a> ·
-  <a href="../">한국어</a></p>
+  <a href="https://yongkyoku.github.io/doori-privacy/">Privacy policy</a></p>
 </footer>
 
 </div>
